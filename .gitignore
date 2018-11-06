@@ -38,6 +38,7 @@ dist/
 maps/
 .vscode/
 public/dist/
+.cache
 
 # Internal Test Files # (Check as per project)
 ######################
