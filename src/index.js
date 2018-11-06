@@ -11,3 +11,7 @@ ReactDOM.render(<AppRouter />, document.getElementById('app'));
 
 // Learning
 // // In parcelJS you dont need to config router setup for routing
+
+// About us page, what the app is about, how to use and pro version.
+
+// Read me

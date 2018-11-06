@@ -14,8 +14,7 @@ const AppRouter = () => (
       <Header />
       <Switch>
         <Route path="/" component={ClientDashboardPage} exact />
-        <Route path="/create" component={AddClient} />
-        <Route path="/edit/:id" component={EditClient} />
+        <Route path="/create" component={AddClient} />w
         <Route path="/help" component={HelpPage} />
         <Route component={NotFoundPage} />
       </Switch>
