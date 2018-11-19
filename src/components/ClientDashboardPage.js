@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ClientList from './ClientList';
+import ClientListFilters from './ClientListFilters';
 
 const ClientDashboardPage = () => (
   <div>
-    <h2>ClientDashboardPage!</h2>
-    <Link to="/create"> Add Client </Link>
+    <ClientListFilters />
+    <ClientList />
   </div>
 );
 

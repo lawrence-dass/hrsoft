@@ -8,11 +8,16 @@ const getVisibleClients = (clients, { name, sortBy, startDate, endDate }) => {
         typeof startDate !== 'number' || client.createdAt >= startDate;
       const endDataMatch =
         typeof endDate !== 'number' || client.createdAt <= endDate;
-      const nameMatch = client.firstName
+      const firstNameMatch = client.firstName
+        .toLowerCase()
+        .includes(name.toLowerCase());
+      const lastNameMatch = client.lastName
         .toLowerCase()
         .includes(name.toLowerCase());
 
-      return startDateMatch && endDataMatch && nameMatch;
+      return (
+        startDateMatch && endDataMatch && (firstNameMatch || lastNameMatch)
+      );
     })
     .sort((a, b) => {
       if (sortBy === 'date') {
