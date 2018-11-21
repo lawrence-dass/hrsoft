@@ -9,13 +9,23 @@
   "author": "lawrence4code",
   "license": "MIT",
   "dependencies": {
+    "moment": "^2.22.2",
     "parcel-bundler": "^1.10.3",
     "react": "^16.6.0",
+    "react-dates": "^18.2.2",
     "react-dom": "^16.6.0",
     "react-redux": "^5.1.1",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
     "sass": "^1.14.3",
     "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "react-phone-number-input": "^2.2.17"
   }
 }

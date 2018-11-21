@@ -6,7 +6,7 @@ import configureStore from './store/configureStore';
 import AppRouter from './routers/AppRouter';
 
 import { addClient } from './actions/clients';
-import { setNameFilter } from './actions/filters';
+// import { setNameFilter } from './actions/filters';
 import getVisibleClients from './selectors/clients';
 
 // import getVisibleClients from './selectors/clients';
@@ -78,3 +78,5 @@ ReactDOM.render(jsx, document.getElementById('app'));
 // About us page, what the app is about, how to use and pro version.
 
 // Read me
+
+// consider keeping Title in the form
