@@ -1,14 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import ClientForm from './ClientForm';
+import { editClient } from '../actions/clients';
 
 const EditClientPage = props => {
   console.log(props);
   return (
     <div>
-      <h2>EditClientPage for Client id: {props.match.params.id}</h2>
-      <Link to="/"> Back to Dashboard </Link>
+      <ClientForm
+        client={props.client}
+        onSubmit={client => {
+          props.dispatch(editClient(props.client.id, client));
+          props.history.push('/');
+        }}
+      />
     </div>
   );
 };
 
-export default EditClientPage;
+const mapStateToProps = (state, props) => {
+  return {
+    client: state.clients.find(client => client.id === props.match.params.id)
+  };
+};
+
+export default connect(mapStateToProps)(EditClientPage);

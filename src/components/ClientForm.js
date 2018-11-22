@@ -8,16 +8,16 @@ class ClientForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: '',
-      lastName: '',
-      title: '',
-      gender: '',
-      phone: '',
-      email: '',
-      address: '',
-      status: '',
-      field: '',
-      note: '',
+      firstName: props.client ? props.client.firstName : '',
+      lastName: props.client ? props.client.lastName : '',
+      title: props.client ? props.client.title : '',
+      gender: props.client ? props.client.gender : '',
+      phone: props.client ? props.client.phone : '',
+      email: props.client ? props.client.email : '',
+      address: props.client ? props.client.address : '',
+      status: props.client ? props.client.status : '',
+      field: props.client ? props.client.field : '',
+      note: props.client ? props.client.note : '',
       createdAt: moment(),
       error: ''
     };
@@ -119,7 +119,19 @@ class ClientForm extends Component {
           error: ''
         };
       });
-      console.log('form submitted.');
+      this.props.onSubmit({
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        title: '',
+        gender: this.state.gender,
+        phone: this.state.phone,
+        email: this.state.email,
+        address: this.state.address,
+        status: this.state.status,
+        field: this.state.field,
+        note: this.state.note,
+        createdAt: this.state.createdAt.valueOf()
+      });
     }
   };
 

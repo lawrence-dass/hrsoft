@@ -80,3 +80,5 @@ ReactDOM.render(jsx, document.getElementById('app'));
 // Read me
 
 // consider keeping Title in the form
+
+// place an icon for edit cleint

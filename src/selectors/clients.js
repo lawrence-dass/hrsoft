@@ -1,13 +1,18 @@
 // get visible clients
+import moment from 'moment';
 
 const getVisibleClients = (clients, { name, sortBy, startDate, endDate }) => {
   console.log(clients);
   return clients
     .filter(client => {
-      const startDateMatch =
-        typeof startDate !== 'number' || client.createdAt >= startDate;
-      const endDataMatch =
-        typeof endDate !== 'number' || client.createdAt <= endDate;
+      const createdAtMoment = moment(client.createdAt);
+      const startDateMatch = startDate
+        ? startDate.isSameOrBefore(createdAtMoment, 'day')
+        : true;
+      const endDateMatch = endDate
+        ? endDate.isSameOrAfter(createdAtMoment, 'day')
+        : true;
+
       const firstNameMatch = client.firstName
         .toLowerCase()
         .includes(name.toLowerCase());
@@ -16,7 +21,7 @@ const getVisibleClients = (clients, { name, sortBy, startDate, endDate }) => {
         .includes(name.toLowerCase());
 
       return (
-        startDateMatch && endDataMatch && (firstNameMatch || lastNameMatch)
+        startDateMatch && endDateMatch && (firstNameMatch || lastNameMatch)
       );
     })
     .sort((a, b) => {

@@ -1,11 +1,12 @@
-// default value for filters reducer
+import moment from 'moment';
 
+// default value for filters reducer
 const filtersReducerDefaultState = {
   name: '',
   phoneNumber: '',
   sortBy: 'date',
-  startDate: undefined,
-  endDate: undefined,
+  startDate: moment().startOf('month'),
+  endDate: moment().endOf('month'),
   createdAt: undefined,
   lastEdited: undefined
 };
