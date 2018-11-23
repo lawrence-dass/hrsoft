@@ -5,7 +5,7 @@ import getVisibleClients from '../selectors/clients';
 
 const ClientList = props => (
   <div>
-    <h1> Client List</h1>
+    <h1>Client List</h1>
     {props.clients.map(client => {
       return <ClientListItem key={client.id} {...client} />;
     })}

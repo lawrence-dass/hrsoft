@@ -6,21 +6,26 @@ import { Link } from 'react-router-dom';
 const ClientListItem = ({ firstName, lastName, id, dispatch }) => {
   // console.log(props);
   return (
-    <div>
-      <Link to={`/edit/${id}`}>
-        <h3>
+    <div className="clientListItem">
+      <Link to={`/edit/${id}`} className="clientListItem__name">
+        <p>
           {firstName} {lastName}
-        </h3>
+        </p>
       </Link>
-      <button
+
+      <a
+        className="clientListItem__button clientListItem__button--one"
         onClick={() => {
           dispatch(removeClient(id));
         }}
       >
         Remove
-      </button>
-      <Link to={`/edit/${id}`}>
-        <button> Edit</button>
+      </a>
+      <Link
+        to={`/edit/${id}`}
+        className="clientListItem__button clientListItem__button--two"
+      >
+        Edit
       </Link>
     </div>
   );

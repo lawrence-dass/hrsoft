@@ -1,5 +1,7 @@
 import uuid from 'uuid';
 
+// action generator for adding client
+// passed with default value if no value passed for the client
 export const addClient = ({
   title = '',
   firstName = '',
@@ -34,11 +36,13 @@ export const addClient = ({
   }
 });
 
+// action generating for removing client
 export const removeClient = id => ({
   type: 'REMOVE_CLIENT',
   id
 });
 
+// action generating for modifying the client details
 export const editClient = (id, updates) => ({
   type: 'EDIT_CLIENT',
   id,
