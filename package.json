@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html --out-dir prod"
+    "build": "parcel build src/index.html --out-dir prod",
+    "test": "jest"
   },
   "author": "lawrence4code",
   "license": "MIT",
@@ -21,12 +22,14 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.1.6",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "babel-core": "^6.26.3",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "jest": "^23.6.0",
     "react-phone-number-input": "^2.2.17"
+  },
+  "resolutions": {
+    "babel-core": "7.0.0-bridge.0"
   }
 }
