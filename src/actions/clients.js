@@ -37,13 +37,13 @@ export const addClient = ({
 });
 
 // action generating for removing client
-export const removeClient = id => ({
+export const removeClient = ({ id } = {}) => ({
   type: 'REMOVE_CLIENT',
   id
 });
 
 // action generating for modifying the client details
-export const editClient = (id, updates) => ({
+export const editClient = ({ id, updates }) => ({
   type: 'EDIT_CLIENT',
   id,
   updates
