@@ -2,7 +2,8 @@
 import moment from 'moment';
 
 const getVisibleClients = (clients, { name, sortBy, startDate, endDate }) => {
-  console.log(clients);
+  // console.log(clients);
+  // console.log(startDate, endDate);
   return clients
     .filter(client => {
       const createdAtMoment = moment(client.createdAt);
