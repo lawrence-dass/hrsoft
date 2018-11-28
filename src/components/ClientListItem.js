@@ -12,15 +12,17 @@ const ClientListItem = ({ firstName, lastName, id, dispatch }) => {
           {firstName} {lastName}
         </p>
       </Link>
+      <div>
+        <a
+          className="clientListItem__button clientListItem__button--one"
+          onClick={() => {
+            dispatch(removeClient({ id }));
+          }}
+        >
+          Remove
+        </a>
+      </div>
 
-      <a
-        className="clientListItem__button clientListItem__button--one"
-        onClick={() => {
-          dispatch(removeClient(id));
-        }}
-      >
-        Remove
-      </a>
       <Link
         to={`/edit/${id}`}
         className="clientListItem__button clientListItem__button--two"

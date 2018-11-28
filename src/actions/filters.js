@@ -5,9 +5,9 @@ export const setNameFilter = (name = '') => ({
   name
 });
 
-export const setPhoneFilter = (phone = '') => ({
+export const setPhoneFilter = (phoneNumber = '') => ({
   type: 'SET_PHONE_FILTER',
-  phone
+  phoneNumber
 });
 
 export const sortByAlphabet = () => ({
@@ -18,12 +18,12 @@ export const sortByDate = () => ({
   type: 'SORT_BY_DATE'
 });
 
-export const setStartDate = date => ({
+export const setStartDate = startDate => ({
   type: 'SET_START_DATE',
-  date
+  startDate
 });
 
-export const setEndDate = date => ({
+export const setEndDate = endDate => ({
   type: 'SET_END_DATE',
-  date
+  endDate
 });

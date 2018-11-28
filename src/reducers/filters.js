@@ -16,15 +16,15 @@ const filtersReducer = (state = filtersReducerDefaultState, action) => {
     case 'SET_TEXT_FILTER':
       return { ...state, name: action.name };
     case 'SET_PHONE_FILTER':
-      return { ...state, phoneNumber: action.phone };
+      return { ...state, phoneNumber: action.phoneNumber };
     case 'SORT_BY_ALPHABET':
       return { ...state, sortBy: 'alphabetically' };
     case 'SORT_BY_DATE':
       return { ...state, sortBy: 'date' };
     case 'SET_START_DATE':
-      return { ...state, startDate: action.date };
+      return { ...state, startDate: action.startDate };
     case 'SET_END_DATE':
-      return { ...state, endDate: action.date };
+      return { ...state, endDate: action.endDate };
     default:
       return state;
   }
