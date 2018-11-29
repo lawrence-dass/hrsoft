@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input';
 
 import moment from 'moment';
@@ -15,10 +14,12 @@ class ClientForm extends Component {
       phone: props.client ? props.client.phone : '',
       email: props.client ? props.client.email : '',
       address: props.client ? props.client.address : '',
+      memberType: props.client ? props.client.memberType : '',
       status: props.client ? props.client.status : '',
       field: props.client ? props.client.field : '',
       note: props.client ? props.client.note : '',
-      createdAt: moment(),
+
+      createdAt: props.client ? moment(props.client.createdAt) : moment(),
       error: ''
     };
   }
@@ -214,10 +215,3 @@ class ClientForm extends Component {
 }
 
 export default ClientForm;
-
-// <input
-//   type="text"
-//   placeholder="Phone Number Here"
-//   value={this.state.phone}
-//   onChange={this.onPhoneChange}
-// />

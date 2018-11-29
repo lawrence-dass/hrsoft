@@ -9,6 +9,9 @@ import { addClient } from './actions/clients';
 // import { setNameFilter } from './actions/filters';
 import getVisibleClients from './selectors/clients';
 
+import 'react-dates/lib/css/_datepicker.css';
+import 'react-phone-number-input/style.css';
+
 // import getVisibleClients from './selectors/clients';
 
 const store = configureStore();

@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render ClientListItem 1`] = `
+<div
+  className="clientListItem"
+>
+  <Link
+    className="clientListItem__name"
+    replace={false}
+    to="/edit/1"
+  >
+    <p>
+      John
+       
+      Doe
+    </p>
+  </Link>
+  <div>
+    <a
+      className="clientListItem__button clientListItem__button--one"
+      onClick={[Function]}
+    >
+      Remove
+    </a>
+  </div>
+  <Link
+    className="clientListItem__button clientListItem__button--two"
+    replace={false}
+    to="/edit/1"
+  >
+    Edit
+  </Link>
+</div>
+`;

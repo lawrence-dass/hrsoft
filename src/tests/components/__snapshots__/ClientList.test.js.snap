@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render ClientList with client details 1`] = `
+<div>
+  <Connect(Component)
+    address="FakeOne High Street"
+    createdAt={0}
+    email="John@doe.com"
+    field="Designer"
+    firstName="John"
+    gender="M"
+    id={1}
+    key="1"
+    lastCommuniation=""
+    lastName="Doe"
+    memberType="Gold"
+    note="Note1"
+    phone="987654321"
+    status="Employed"
+    title="Mr"
+  />
+  <Connect(Component)
+    address="FakeOne High Street"
+    createdAt={-345600000}
+    email="Jane@doe.com"
+    field="n/a"
+    firstName="Jane"
+    gender="F"
+    id={2}
+    key="2"
+    lastCommuniation=""
+    lastName="Doe"
+    memberType="Silver"
+    note="Not needed"
+    phone="123456789"
+    status="Housewife"
+    title="Mrs"
+  />
+  <Connect(Component)
+    address="FakeTwo High Street"
+    createdAt={345600000}
+    email="Peter@doe.com"
+    field="Teacher"
+    firstName="Peter"
+    gender="M"
+    id={3}
+    key="3"
+    lastCommuniation=""
+    lastName="Doe"
+    memberType="Gold"
+    note="Note3"
+    phone="9999999999"
+    status="Student"
+    title="Mr"
+  />
+</div>
+`;
+
+exports[`should render ClientList with empty message 1`] = `
+<div>
+  <p>
+     No Clients 
+  </p>
+</div>
+`;

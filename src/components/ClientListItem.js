@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { removeClient } from '../actions/clients';
 import { Link } from 'react-router-dom';
 
-const ClientListItem = ({ firstName, lastName, id, dispatch }) => {
+export const ClientListItem = ({ firstName, lastName, id, dispatch }) => {
   // console.log(props);
   return (
     <div className="clientListItem">

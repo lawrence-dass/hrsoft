@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "parcel src/index.html",
     "build": "parcel build src/index.html --out-dir prod",
-    "test": "jest ../--config=jest.config.json"
+    "test": "jest --config=jest.config.json"
   },
   "author": "lawrence4code",
   "license": "MIT",

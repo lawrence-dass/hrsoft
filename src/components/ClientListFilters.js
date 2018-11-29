@@ -10,8 +10,6 @@ import {
   setEndDate
 } from '../actions/filters';
 
-import 'react-dates/lib/css/_datepicker.css';
-
 // Component which help to render the for sorting and filtering clients
 
 class ClientListFilters extends React.Component {

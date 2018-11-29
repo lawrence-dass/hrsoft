@@ -3,12 +3,16 @@ import { connect } from 'react-redux';
 import ClientListItem from './ClientListItem';
 import getVisibleClients from '../selectors/clients';
 
-const ClientList = props => (
+export const ClientList = props => (
   <div>
-    <h1>Client List</h1>
-    {props.clients.map(client => {
-      return <ClientListItem key={client.id} {...client} />;
-    })}
+    {props.clients.length === 0 ? (
+      <p> No Clients </p>
+    ) : (
+      props.clients.map(client => {
+        return <ClientListItem key={client.id} {...client} />;
+      })
+    )}
+    {}
   </div>
 );
 
