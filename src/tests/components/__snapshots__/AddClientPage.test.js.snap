@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render AddClientPage correctly 1`] = `
+<div>
+  <h1>
+     Add New Client 
+  </h1>
+  <ClientForm
+    onSubmit={[Function]}
+  />
+</div>
+`;

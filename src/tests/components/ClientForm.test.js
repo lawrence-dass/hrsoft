@@ -56,17 +56,17 @@ test("should change the client's on input change for email", () => {
   expect(wrapper.state('email')).toBe('Kobe@workEthics.com');
 });
 
-test("should change the client's on input change for phone number", () => {
-  const value = 10000000000;
-  const wrapper = shallow(<ClientForm />);
-  console.log(wrapper.find('PhoneInput'));
-  wrapper
-    .find('PhoneInput')
-    .at(0)
-    .simulate('change', { target: { value } });
+// test("should change the client's on input change for phone number", () => {
+//   const value = 10000000000;
+//   const wrapper = shallow(<ClientForm />);
+//   console.log(wrapper.find('PhoneInput'));
+//   wrapper
+//     .find('PhoneInput')
+//     .at(0)
+//     .simulate('change', { target: { value } });
 
-  // expect(wrapper.state('phoneNumber')).toBe(100000000000);
-});
+//   // expect(wrapper.state('phoneNumber')).toBe(100000000000);
+// });
 
 test("should change the client's gender input on selection", () => {
   const value = 'F';
@@ -143,4 +143,30 @@ test('should change the client notes textarea input for note', () => {
     .simulate('change', { target: { value } });
 
   expect(wrapper.state('note')).toBe('Some super awesome note');
+});
+
+test('should call onSubmit prop with valid from submission', () => {
+  const onSubmitSpy = jest.fn();
+  const wrapper = shallow(
+    <ClientForm client={clients[0]} onSubmit={onSubmitSpy} />
+  );
+  wrapper.find('form').simulate('submit', {
+    preventDefault: () => {}
+  });
+  expect(wrapper.state('error')).toBe('');
+  expect(onSubmitSpy).toHaveBeenLastCalledWith({
+    title: clients[0].title,
+    firstName: clients[0].firstName,
+    lastName: clients[0].lastName,
+    gender: clients[0].gender,
+    phone: clients[0].phone,
+    email: clients[0].email,
+    address: clients[0].address,
+    status: clients[0].status,
+    field: clients[0].field,
+    note: clients[0].note,
+    lastCommuniation: clients[0].lastCommuniation,
+    memberType: clients[0].memberType,
+    createdAt: clients[0].createdAt
+  });
 });

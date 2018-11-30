@@ -14,11 +14,11 @@ class ClientForm extends Component {
       phone: props.client ? props.client.phone : '',
       email: props.client ? props.client.email : '',
       address: props.client ? props.client.address : '',
-      memberType: props.client ? props.client.memberType : '',
       status: props.client ? props.client.status : '',
       field: props.client ? props.client.field : '',
       note: props.client ? props.client.note : '',
-
+      lastCommuniation: props.client ? props.client.lastCommuniation : '',
+      memberType: props.client ? props.client.memberType : '',
       createdAt: props.client ? moment(props.client.createdAt) : moment(),
       error: ''
     };
@@ -123,7 +123,7 @@ class ClientForm extends Component {
       this.props.onSubmit({
         firstName: this.state.firstName,
         lastName: this.state.lastName,
-        title: '',
+        title: this.state.title,
         gender: this.state.gender,
         phone: this.state.phone,
         email: this.state.email,
@@ -131,6 +131,8 @@ class ClientForm extends Component {
         status: this.state.status,
         field: this.state.field,
         note: this.state.note,
+        lastCommuniation: this.state.lastCommuniation,
+        memberType: this.state.memberType,
         createdAt: this.state.createdAt.valueOf()
       });
     }

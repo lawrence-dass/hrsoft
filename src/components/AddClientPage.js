@@ -3,16 +3,27 @@ import ClientForm from './ClientForm';
 import { connect } from 'react-redux';
 import { addClient } from '../actions/clients';
 
-const AddClientPage = props => (
-  <div>
-    <h1> Add New Client </h1>
-    <ClientForm
-      onSubmit={client => {
-        props.dispatch(addClient(client));
-        props.history.push('/');
-      }}
-    />
-  </div>
-);
+export class AddClientPage extends React.Component {
+  onSubmit = client => {
+    this.props.onSubmit(client);
+    this.props.history.push('/');
+  };
 
-export default connect()(AddClientPage);
+  render() {
+    return (
+      <div>
+        <h1> Add New Client </h1>
+        <ClientForm onSubmit={this.onSubmit} />
+      </div>
+    );
+  }
+}
+
+const mapDispatchToProps = dispatch => ({
+  onSubmit: client => dispatch(addClient(client))
+});
+
+export default connect(
+  undefined,
+  mapDispatchToProps
+)(AddClientPage);
