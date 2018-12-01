@@ -3,12 +3,12 @@ import { shallow } from 'enzyme';
 import { AddClientPage } from '../../components/AddClientPage';
 import clients from '../fixtures/clients';
 
-let onSubmit, history, wrapper;
+let addClient, history, wrapper;
 
 beforeEach(() => {
-  onSubmit = jest.fn();
+  addClient = jest.fn();
   history = { push: jest.fn() };
-  wrapper = shallow(<AddClientPage onSubmit={onSubmit} history={history} />);
+  wrapper = shallow(<AddClientPage addClient={addClient} history={history} />);
 });
 
 test('should render AddClientPage correctly', () => {
@@ -18,5 +18,5 @@ test('should render AddClientPage correctly', () => {
 test('should handle on submit', () => {
   wrapper.find('ClientForm').prop('onSubmit')(clients[0]);
   expect(history.push).toHaveBeenLastCalledWith('/');
-  expect(onSubmit).toHaveBeenLastCalledWith(clients[0]);
+  expect(addClient).toHaveBeenLastCalledWith(clients[0]);
 });

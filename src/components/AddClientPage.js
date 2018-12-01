@@ -5,7 +5,7 @@ import { addClient } from '../actions/clients';
 
 export class AddClientPage extends React.Component {
   onSubmit = client => {
-    this.props.onSubmit(client);
+    this.props.addClient(client);
     this.props.history.push('/');
   };
 
@@ -20,7 +20,7 @@ export class AddClientPage extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  onSubmit: client => dispatch(addClient(client))
+  addClient: client => dispatch(addClient(client))
 });
 
 export default connect(
