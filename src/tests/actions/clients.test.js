@@ -6,10 +6,7 @@ test('should setup remove client action object', () => {
 });
 
 test('should setup edit client action object with given update', () => {
-  const editAction = editClient({
-    id: '123abc',
-    updates: { lastName: 'Cramer' }
-  });
+  const editAction = editClient('123abc', { lastName: 'Cramer' });
   expect(editAction).toEqual({
     type: 'EDIT_CLIENT',
     id: '123abc',

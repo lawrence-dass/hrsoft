@@ -6,6 +6,7 @@ const clientsReducer = (state = clientReducerDefaultState, action) => {
     case 'ADD_CLIENT':
       return [...state, action.client];
     case 'EDIT_CLIENT':
+      // console.log(action.updates);
       return state.map(client => {
         if (client.id === action.id) {
           return {

@@ -17,7 +17,7 @@ export const ClientList = props => (
 );
 
 const mapStateToProps = state => {
-  console.log(state);
+  // console.log(state);
   return {
     clients: getVisibleClients(state.clients, state.filters)
   };

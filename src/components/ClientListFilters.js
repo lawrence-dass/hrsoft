@@ -36,7 +36,7 @@ class ClientListFilters extends React.Component {
           type="text"
           value={this.props.filters.name}
           onChange={e => {
-            props.dispatch(setNameFilter(e.target.value));
+            this.props.dispatch(setNameFilter(e.target.value));
           }}
         />
 

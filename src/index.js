@@ -50,7 +50,7 @@ const clientTwo = store.dispatch(
   })
 );
 
-console.log(store.getState());
+// console.log(store.getState());
 
 // store.dispatch(setNameFilter('john'));
 
@@ -62,7 +62,7 @@ const state = store.getState();
 
 const visibleClients = getVisibleClients(state.clients, state.filters);
 
-console.log(visibleClients);
+// console.log(visibleClients);
 
 const jsx = (
   <Provider store={store}>

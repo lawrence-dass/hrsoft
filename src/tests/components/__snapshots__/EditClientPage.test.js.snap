@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render EditClientPage 1`] = `
+<div>
+  <ClientForm
+    client={
+      Object {
+        "address": "FakeOne High Street",
+        "createdAt": -345600000,
+        "email": "Jane@doe.com",
+        "field": "n/a",
+        "firstName": "Jane",
+        "gender": "F",
+        "id": 2,
+        "lastCommuniation": "",
+        "lastName": "Doe",
+        "memberType": "Silver",
+        "note": "Not needed",
+        "phone": "123456789",
+        "status": "Housewife",
+        "title": "Mrs",
+      }
+    }
+    onSubmit={[Function]}
+  />
+</div>
+`;

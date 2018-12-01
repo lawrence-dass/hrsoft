@@ -1,7 +1,4 @@
 {
   "setupFiles": ["raf/polyfill", "<rootDir>/src/tests/setupTests.js"],
-  "snapshotSerializers": ["enzyme-to-json/serializer"],
-  "jest": {
-    "verbose": true
-  }
+  "snapshotSerializers": ["enzyme-to-json/serializer"]
 }

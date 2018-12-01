@@ -102,11 +102,11 @@ class ClientForm extends Component {
     if (
       !this.state.firstName ||
       !this.state.lastName ||
-      !this.state.phone ||
-      !this.state.email ||
-      !this.state.gender ||
-      !this.state.address ||
-      !this.state.status
+      // !this.state.phone ||
+      !this.state.email
+      // !this.state.gender ||
+      // !this.state.address ||
+      // !this.state.status
     ) {
       this.setState(() => {
         return {
