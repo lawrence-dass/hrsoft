@@ -12,7 +12,7 @@ import {
 
 // Component which help to render the for sorting and filtering clients
 
-class ClientListFilters extends React.Component {
+export class ClientListFilters extends React.Component {
   constructor(props) {
     super(props);
 
@@ -22,32 +22,35 @@ class ClientListFilters extends React.Component {
   }
 
   onDatesChange = ({ startDate, endDate }) => {
-    this.props.dispatch(setStartDate(startDate));
-    this.props.dispatch(setEndDate(endDate));
+    this.props.setStartDate(startDate);
+    this.props.setEndDate(endDate);
   };
 
   onFocusChange = calendarFocused => {
     this.setState(() => ({ calendarFocused }));
   };
+
+  onTextChange = e => {
+    this.props.setNameFilter(e.target.value);
+  };
+
+  onSortChange = e => {
+    e.target.value === 'Date'
+      ? this.props.sortByDate()
+      : this.props.sortByAlphabet();
+  };
+
   render() {
     return (
       <div>
         <input
           type="text"
           value={this.props.filters.name}
-          onChange={e => {
-            this.props.dispatch(setNameFilter(e.target.value));
-          }}
+          onChange={this.onTextChange}
         />
 
-        {/* Drop down option for sortby, based on value of the option an actionis dispatch to the store using terneray operator */}
-        <select
-          onChange={e => {
-            e.target.value === 'Date'
-              ? this.props.dispatch(sortByDate())
-              : this.props.dispatch(sortByAlphabet());
-          }}
-        >
+        {/* Drop down option for sortby, based on value of the option an action is dispatch to the store using terneray operator */}
+        <select onChange={this.onSortChange}>
           <option value={this.props.filters.date}> Date </option>
           <option value={this.props.filters.alphabetically}>
             Alphabetically
@@ -77,10 +80,15 @@ const mapStateToProps = state => {
   };
 };
 
-// linked the value attribute of input to the name filter from state
+const mapDispatchToProps = dispatch => ({
+  setNameFilter: text => dispatch(setNameFilter(text)),
+  sortByDate: () => dispatch(sortByDate()),
+  sortByAlphabet: () => dispatch(sortByAlphabet()),
+  setStartDate: startDate => dispatch(setStartDate(startDate)),
+  setEndDate: endDate => dispatch(setEndDate(endDate))
+});
 
-export default connect(mapStateToProps)(ClientListFilters);
-
-// <DateRangePicker
-
-// />
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ClientListFilters);
