@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "parcel src/index.html",
     "build": "parcel build src/index.html --out-dir prod",
+    "serve-build": "parcel serve prod/index.html",
     "test": "jest --config=jest.config.json"
   },
   "author": "lawrence4code",

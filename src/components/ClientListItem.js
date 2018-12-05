@@ -3,7 +3,20 @@ import { connect } from 'react-redux';
 import { removeClient } from '../actions/clients';
 import { Link } from 'react-router-dom';
 
-export const ClientListItem = ({ firstName, lastName, id, dispatch }) => {
+export const ClientListItem = ({
+  firstName,
+  lastName,
+  email,
+  phone,
+  gender = 'N/A',
+  address,
+  status = 'N/A',
+  field = 'N/A',
+  memberType = 'N/A',
+  lastCommunication = 'N/A',
+  id,
+  dispatch
+}) => {
   // console.log(props);
   return (
     <div className="clientListItem">
@@ -12,16 +25,24 @@ export const ClientListItem = ({ firstName, lastName, id, dispatch }) => {
           {firstName} {lastName}
         </p>
       </Link>
-      <div>
-        <a
-          className="clientListItem__button clientListItem__button--one"
-          onClick={() => {
-            dispatch(removeClient({ id }));
-          }}
-        >
-          Remove
-        </a>
-      </div>
+
+      <p> {email}</p>
+      <p> {phone}</p>
+      <p> {gender}</p>
+      <p> {address}</p>
+      <p> {status}</p>
+      <p> {field}</p>
+      <p> {memberType}</p>
+      <p> {lastCommunication}</p>
+
+      <a
+        className="clientListItem__button--one"
+        onClick={() => {
+          dispatch(removeClient({ id }));
+        }}
+      >
+        Remove
+      </a>
 
       <Link
         to={`/edit/${id}`}
