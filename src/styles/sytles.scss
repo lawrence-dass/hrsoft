@@ -128,6 +128,7 @@ table {
 
 body {
   font-family: 'lato', sans-serif;
+  width: 100%;
 }
 
 .isActive {
@@ -135,7 +136,8 @@ body {
 }
 
 .clientListItem {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(11, 140px);
+
+  width: 80%;
 }
