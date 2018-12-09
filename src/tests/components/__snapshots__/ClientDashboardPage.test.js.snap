@@ -2,6 +2,7 @@
 
 exports[`should render ClientDashboardPage 1`] = `
 <div>
+  <Connect(Component) />
   <Connect(ClientListFilters) />
   <Connect(Component) />
 </div>

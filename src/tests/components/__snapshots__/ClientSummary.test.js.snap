@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render client summary correctly with multiple clients 1`] = `
+<div>
+  <h1>
+    Viewing 
+     
+    clients
+     based on set filters.
+  </h1>
+</div>
+`;
+
+exports[`should render client summary correctly with one client 1`] = `
+<div>
+  <h1>
+    Viewing 
+     
+    clients
+     based on set filters.
+  </h1>
+</div>
+`;

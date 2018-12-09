@@ -15,14 +15,44 @@ exports[`should render ClientListItem 1`] = `
       Doe
     </p>
   </Link>
-  <div>
-    <a
-      className="clientListItem__button clientListItem__button--one"
-      onClick={[Function]}
-    >
-      Remove
-    </a>
-  </div>
+  <p>
+     
+    John@doe.com
+  </p>
+  <p>
+     
+    987654321
+  </p>
+  <p>
+     
+    M
+  </p>
+  <p>
+     
+    FakeOne High Street
+  </p>
+  <p>
+     
+    Employed
+  </p>
+  <p>
+     
+    Designer
+  </p>
+  <p>
+     
+    Gold
+  </p>
+  <p>
+     
+    N/A
+  </p>
+  <a
+    className="clientListItem__button--one"
+    onClick={[Function]}
+  >
+    Remove
+  </a>
   <Link
     className="clientListItem__button clientListItem__button--two"
     replace={false}
