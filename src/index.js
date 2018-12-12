@@ -11,6 +11,7 @@ import getVisibleClients from './selectors/clients';
 
 import 'react-dates/lib/css/_datepicker.css';
 import 'react-phone-number-input/style.css';
+import './firebase/firebase';
 
 // import getVisibleClients from './selectors/clients';
 

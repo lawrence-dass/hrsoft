@@ -20,7 +20,7 @@ export const ClientListItem = ({
   // console.log(props);
   return (
     <div className="clientListItem">
-      <Link to={`/edit/${id}`} className="clientListItem__name">
+      <Link to={`/view/${id}`} className="clientListItem__name">
         <p>
           {firstName} {lastName}
         </p>
