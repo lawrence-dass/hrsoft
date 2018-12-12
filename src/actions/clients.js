@@ -1,40 +1,59 @@
 import uuid from 'uuid';
-
+import database from '../firebase/firebase';
 // action generator for adding client
 // passed with default value if no value passed for the client
-export const addClient = ({
-  title = '',
-  firstName = '',
-  lastName = '',
-  gender = '',
-  phone = '',
-  email = '',
-  address = '',
-  status = '',
-  field = '',
-  note = '',
-  lastCommuniation = '',
-  memberType = '',
-  createdAt = 0
-} = {}) => ({
+export const addClient = client => ({
   type: 'ADD_CLIENT',
-  client: {
-    id: uuid(),
-    title,
-    firstName,
-    lastName,
-    gender,
-    phone,
-    email,
-    address,
-    status,
-    field,
-    note,
-    lastCommuniation,
-    memberType,
-    createdAt
-  }
+  client
 });
+
+export const startAddClient = (clientData = {}) => {
+  return dispatch => {
+    const {
+      title = '',
+      firstName = '',
+      lastName = '',
+      gender = '',
+      phone = '',
+      email = '',
+      address = '',
+      status = '',
+      field = '',
+      note = '',
+      lastCommuniation = '',
+      memberType = '',
+      createdAt = 0
+    } = clientData;
+
+    const client = {
+      title,
+      firstName,
+      lastName,
+      gender,
+      phone,
+      email,
+      address,
+      status,
+      field,
+      note,
+      lastCommuniation,
+      memberType,
+      createdAt
+    };
+
+    database
+      .ref('client')
+      .push(client)
+      .then(ref => {
+        dispatch(
+          addClient({
+            id: ref.key,
+            ...client
+          })
+        );
+      });
+  };
+};
 
 // action generating for removing client
 export const removeClient = ({ id } = {}) => {

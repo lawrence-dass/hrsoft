@@ -17,39 +17,39 @@ import './firebase/firebase';
 
 const store = configureStore();
 
-const clientOne = store.dispatch(
-  addClient({
-    firstName: 'John',
-    lastName: 'Smith',
-    note: 'first special note',
-    email: 'jdoe@hotmail.com',
-    createdAt: -21000
-  })
-);
+// const clientOne = store.dispatch(
+//   addClient({
+//     firstName: 'John',
+//     lastName: 'Smith',
+//     note: 'first special note',
+//     email: 'jdoe@hotmail.com',
+//     createdAt: -21000
+//   })
+// );
 
-const clientThree = store.dispatch(
-  addClient({
-    firstName: 'Jane',
-    lastName: 'Smith',
-    note: 'Third special note',
-    email: 'Jane@tarzan.com',
-    gender: 'F',
-    address: 'Same address here',
-    createdAt: 1000
-  })
-);
+// const clientThree = store.dispatch(
+//   addClient({
+//     firstName: 'Jane',
+//     lastName: 'Smith',
+//     note: 'Third special note',
+//     email: 'Jane@tarzan.com',
+//     gender: 'F',
+//     address: 'Same address here',
+//     createdAt: 1000
+//   })
+// );
 
-const clientTwo = store.dispatch(
-  addClient({
-    firstName: 'Philip',
-    lastName: 'Smith',
-    note: 'Second special note',
-    email: 'P@lip.com',
-    gender: 'M',
-    address: 'Some address here',
-    createdAt: -1000
-  })
-);
+// const clientTwo = store.dispatch(
+//   addClient({
+//     firstName: 'Philip',
+//     lastName: 'Smith',
+//     note: 'Second special note',
+//     email: 'P@lip.com',
+//     gender: 'M',
+//     address: 'Some address here',
+//     createdAt: -1000
+//   })
+// );
 
 // console.log(store.getState());
 

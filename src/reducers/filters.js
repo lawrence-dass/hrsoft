@@ -5,8 +5,8 @@ const filtersReducerDefaultState = {
   name: '',
   phoneNumber: '',
   sortBy: 'date',
-  startDate: moment().startOf('month'),
-  endDate: moment().endOf('month'),
+  startDate: undefined,
+  endDate: undefined,
   createdAt: undefined,
   lastEdited: undefined
 };
