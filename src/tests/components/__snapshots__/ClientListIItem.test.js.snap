@@ -7,7 +7,7 @@ exports[`should render ClientListItem 1`] = `
   <Link
     className="clientListItem__name"
     replace={false}
-    to="/edit/1"
+    to="/view/1"
   >
     <p>
       John

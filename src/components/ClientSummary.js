@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import getVisibleClients from '../selectors/clients';
 
 export const ClientSummary = ({ ClientCount }) => {
-  console.log(ClientCount);
   const clientWord = ClientCount === 1 ? 'client' : 'clients';
   return (
     <div>

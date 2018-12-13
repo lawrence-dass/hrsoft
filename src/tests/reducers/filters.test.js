@@ -7,8 +7,8 @@ test('should setup default filter at intialization', () => {
     name: '',
     phoneNumber: '',
     sortBy: 'date',
-    startDate: moment().startOf('month'),
-    endDate: moment().endOf('month'),
+    startDate: undefined,
+    endDate: undefined,
     createdAt: undefined,
     lastEdited: undefined
   });

@@ -41,8 +41,8 @@ export const startAddClient = (clientData = {}) => {
       createdAt
     };
 
-    database
-      .ref('client')
+    return database
+      .ref('clients')
       .push(client)
       .then(ref => {
         dispatch(
