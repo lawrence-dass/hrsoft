@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { removeClient } from '../actions/clients';
+import { startRemoveClient } from '../actions/clients';
 import { Link } from 'react-router-dom';
 
 export const ClientListItem = ({
@@ -38,7 +38,7 @@ export const ClientListItem = ({
       <a
         className="clientListItem__button--one"
         onClick={() => {
-          dispatch(removeClient({ id }));
+          dispatch(startRemoveClient({ id }));
         }}
       >
         Remove

@@ -2,7 +2,7 @@ import moment from 'moment';
 
 const clients = [
   {
-    id: 1,
+    id: '1',
     title: 'Mr',
     firstName: 'John',
     lastName: 'Doe',
@@ -18,7 +18,7 @@ const clients = [
     createdAt: 0
   },
   {
-    id: 2,
+    id: '2',
     title: 'Mrs',
     firstName: 'Jane',
     lastName: 'Doe',
@@ -36,7 +36,7 @@ const clients = [
       .valueOf()
   },
   {
-    id: 3,
+    id: '3',
     title: 'Mr',
     firstName: 'Peter',
     lastName: 'Doe',

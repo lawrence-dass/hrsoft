@@ -7,3 +7,5 @@ test('should render ClientListItem', () => {
   const wrapper = shallow(<ClientListItem {...clients[0]} />);
   expect(wrapper).toMatchSnapshot();
 });
+
+// startRemoveClient test case is needed for remove client

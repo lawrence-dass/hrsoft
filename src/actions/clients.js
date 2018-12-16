@@ -67,6 +67,17 @@ export const removeClient = ({ id } = {}) => {
   };
 };
 
+export const startRemoveClient = ({ id } = {}) => {
+  return dispatch => {
+    return database
+      .ref(`clients/${id}`)
+      .remove()
+      .then(() => {
+        dispatch(removeClient({ id }));
+      });
+  };
+};
+
 // action generating for modifying the client details
 export const editClient = (id, updates) => {
   return {

@@ -6,7 +6,8 @@ import {
   editClient,
   removeClient,
   setClients,
-  startSetClients
+  startSetClients,
+  startRemoveClient
 } from '../../actions/clients';
 import clients from '../fixtures/clients';
 import database from '../../firebase/firebase';
@@ -61,6 +62,25 @@ beforeEach(done => {
 test('should setup remove client action object', () => {
   const removeAction = removeClient({ id: '123abc' });
   expect(removeAction).toEqual({ type: 'REMOVE_CLIENT', id: '123abc' });
+});
+
+test('should remove client from firebase', done => {
+  const store = createMockStore({});
+  const id = clients[2].id;
+  store
+    .dispatch(startRemoveClient({ id }))
+    .then(() => {
+      const actions = store.getActions();
+      expect(actions[0]).toEqual({
+        type: 'REMOVE_CLIENT',
+        id
+      });
+      return database.ref(`clients/${id}`).once('value');
+    })
+    .then(snapshot => {
+      expect(snapshot.val()).toBeFalsy();
+      done();
+    });
 });
 
 test('should setup edit client action object with given update', () => {

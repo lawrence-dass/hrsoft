@@ -11,7 +11,7 @@ exports[`should render EditClientPage 1`] = `
         "field": "n/a",
         "firstName": "Jane",
         "gender": "F",
-        "id": 2,
+        "id": "2",
         "lastCommuniation": "",
         "lastName": "Doe",
         "memberType": "Silver",
