@@ -1,11 +1,11 @@
 import React from 'react';
 import ClientForm from './ClientForm';
 import { connect } from 'react-redux';
-import { editClient } from '../actions/clients';
+import { startEditClient } from '../actions/clients';
 
 export class EditClientPage extends React.Component {
   onSubmit = client => {
-    this.props.editClient(this.props.client.id, client);
+    this.props.startEditClient(this.props.client.id, client);
     this.props.history.push('/');
   };
 
@@ -26,9 +26,9 @@ const mapStateToProps = (state, props) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    editClient: (id, client) => {
+    startEditClient: (id, client) => {
       console.log(id, client);
-      return dispatch(editClient(id, client));
+      return dispatch(startEditClient(id, client));
     }
   };
 };

@@ -3,14 +3,14 @@ import { shallow } from 'enzyme';
 import { EditClientPage } from '../../components/EditClientPage';
 import clients from '../fixtures/clients';
 
-let editClient, history, wrapper;
+let startEditClient, history, wrapper;
 
 beforeEach(() => {
-  editClient = jest.fn();
+  startEditClient = jest.fn();
   history = { push: jest.fn() };
   wrapper = shallow(
     <EditClientPage
-      editClient={editClient}
+      startEditClient={startEditClient}
       history={history}
       client={clients[1]}
     />
@@ -24,5 +24,5 @@ test('should render EditClientPage', () => {
 test('should render EditClientPage', () => {
   wrapper.find('ClientForm').prop('onSubmit')(clients[1]);
   expect(history.push).toHaveBeenLastCalledWith('/');
-  expect(editClient).toHaveBeenLastCalledWith(clients[1].id, clients[1]);
+  expect(startEditClient).toHaveBeenLastCalledWith(clients[1].id, clients[1]);
 });

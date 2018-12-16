@@ -4,10 +4,11 @@ import {
   startAddClient,
   addClient,
   editClient,
+  startEditClient,
   removeClient,
+  startRemoveClient,
   setClients,
-  startSetClients,
-  startRemoveClient
+  startSetClients
 } from '../../actions/clients';
 import clients from '../fixtures/clients';
 import database from '../../firebase/firebase';
@@ -90,6 +91,27 @@ test('should setup edit client action object with given update', () => {
     id: '123abc',
     updates: { lastName: 'Cramer' }
   });
+});
+
+test('should edit client in firebase', done => {
+  const store = createMockStore({});
+  const id = clients[0].id;
+  const updates = { firstName: 'Edited' };
+  store
+    .dispatch(startEditClient(id, updates))
+    .then(() => {
+      const actions = store.getActions();
+      expect(actions[0]).toEqual({
+        type: 'EDIT_CLIENT',
+        id,
+        updates
+      });
+      return database.ref(`clients/${id}`).once('value');
+    })
+    .then(snapshot => {
+      expect(snapshot.val().firstName).toBe(updates.firstName);
+      done();
+    });
 });
 
 test('should setup add Client action object with given values', () => {
