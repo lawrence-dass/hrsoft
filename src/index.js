@@ -5,7 +5,7 @@ import './styles/sytles.scss';
 import configureStore from './store/configureStore';
 import AppRouter from './routers/AppRouter';
 
-import { addClient } from './actions/clients';
+import { startSetClients } from './actions/clients';
 // import { setNameFilter } from './actions/filters';
 import getVisibleClients from './selectors/clients';
 
@@ -71,7 +71,10 @@ const jsx = (
   </Provider>
 );
 
-ReactDOM.render(jsx, document.getElementById('app'));
+ReactDOM.render(<p> Loading...</p>, document.getElementById('app'));
+store.dispatch(startSetClients()).then(() => {
+  ReactDOM.render(jsx, document.getElementById('app'));
+});
 
 // consider removing normalize css and adding customer css resets.
 // integrate bundle-analyzer (npm)

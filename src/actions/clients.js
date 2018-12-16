@@ -1,5 +1,6 @@
 import uuid from 'uuid';
 import database from '../firebase/firebase';
+import { Children } from 'react';
 // action generator for adding client
 // passed with default value if no value passed for the client
 export const addClient = client => ({
@@ -41,10 +42,13 @@ export const startAddClient = (clientData = {}) => {
       createdAt
     };
 
+    // console.log(client);
+
     return database
       .ref('clients')
       .push(client)
       .then(ref => {
+        // console.log(ref.key);
         dispatch(
           addClient({
             id: ref.key,
@@ -69,5 +73,34 @@ export const editClient = (id, updates) => {
     type: 'EDIT_CLIENT',
     id,
     updates
+  };
+};
+
+// set clients
+
+export const setClients = clients => {
+  return {
+    type: 'SET_CLIENTS',
+    clients
+  };
+};
+
+// export const startSetClients
+
+export const startSetClients = () => {
+  return dispatch => {
+    return database
+      .ref('clients')
+      .once('value')
+      .then(snapshot => {
+        const clients = [];
+        snapshot.forEach(childSnapshot => {
+          clients.push({
+            id: childSnapshot.key,
+            ...childSnapshot.val()
+          });
+        });
+        dispatch(setClients(clients));
+      });
   };
 };

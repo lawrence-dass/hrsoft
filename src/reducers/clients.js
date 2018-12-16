@@ -19,6 +19,8 @@ const clientsReducer = (state = clientReducerDefaultState, action) => {
       });
     case 'REMOVE_CLIENT':
       return state.filter(({ id }) => id !== action.id);
+    case 'SET_CLIENTS':
+      return action.clients;
     default:
       return state;
   }

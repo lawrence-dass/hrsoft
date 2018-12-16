@@ -63,3 +63,13 @@ test('should not edit the client details with invalid id', () => {
   });
   expect(state[0].firstName).toEqual('John');
 });
+
+test('should set clients', () => {
+  const action = {
+    type: 'SET_CLIENTS',
+    clients: [clients[1]]
+  };
+
+  const state = clientReducer(clients, action);
+  expect(state).toEqual([clients[1]]);
+});
