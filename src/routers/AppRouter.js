@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
 
 import Header from '../components/Header';
+import LoginPage from '../components/LoginPage';
 import ClientDashboardPage from '../components/ClientDashboardPage';
 import AddClientPage from '../components/AddClientPage';
 import EditClientPage from '../components/EditClientPage';
@@ -14,7 +15,8 @@ const AppRouter = () => (
     <div>
       <Header />
       <Switch>
-        <Route path="/" component={ClientDashboardPage} exact />
+        <Route path="/" component={LoginPage} exact />
+        <Route path="/dashboard" component={ClientDashboardPage} exact />
         <Route path="/create" component={AddClientPage} />
         <Route path="/edit/:id" component={EditClientPage} />
         <Route path="/view/:id" component={ViewClientPage} />

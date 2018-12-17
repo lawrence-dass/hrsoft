@@ -12,6 +12,7 @@ import getVisibleClients from './selectors/clients';
 import 'react-dates/lib/css/_datepicker.css';
 import 'react-phone-number-input/style.css';
 import './firebase/firebase';
+import { firebase } from './firebase/firebase';
 
 // import getVisibleClients from './selectors/clients';
 
@@ -76,6 +77,14 @@ store.dispatch(startSetClients()).then(() => {
   ReactDOM.render(jsx, document.getElementById('app'));
 });
 
+firebase.auth().onAuthStateChanged(user => {
+  if (user) {
+    console.log(`Logged in`);
+  } else {
+    console.log('Log out!');
+  }
+});
+
 // consider removing normalize css and adding customer css resets.
 // integrate bundle-analyzer (npm)
 
@@ -91,3 +100,7 @@ store.dispatch(startSetClients()).then(() => {
 // place an icon for edit cleint
 
 // couple of test are spending for clientListFilters
+
+// remove all console.logs
+
+// refactor all functional component and remove return keyword.
