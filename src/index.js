@@ -3,11 +3,9 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import './styles/sytles.scss';
 import configureStore from './store/configureStore';
-import AppRouter from './routers/AppRouter';
-
+import AppRouter, { history } from './routers/AppRouter';
+import { login, logout } from './actions/auth';
 import { startSetClients } from './actions/clients';
-// import { setNameFilter } from './actions/filters';
-import getVisibleClients from './selectors/clients';
 
 import 'react-dates/lib/css/_datepicker.css';
 import 'react-phone-number-input/style.css';
@@ -17,6 +15,7 @@ import { firebase } from './firebase/firebase';
 // import getVisibleClients from './selectors/clients';
 
 const store = configureStore();
+console.log(store);
 
 // const clientOne = store.dispatch(
 //   addClient({
@@ -60,9 +59,9 @@ const store = configureStore();
 //   store.dispatch(setNameFilter('phil'));
 // }, 3000);
 
-const state = store.getState();
+// const state = store.getState();
 
-const visibleClients = getVisibleClients(state.clients, state.filters);
+// const visibleClients = getVisibleClients(state.clients, state.filters);
 
 // console.log(visibleClients);
 
@@ -72,16 +71,30 @@ const jsx = (
   </Provider>
 );
 
+let hasRendered = false;
+const renderApp = () => {
+  if (!hasRendered) {
+    ReactDOM.render(jsx, document.getElementById('app'));
+    hasRendered = true;
+  }
+};
+
 ReactDOM.render(<p> Loading...</p>, document.getElementById('app'));
-store.dispatch(startSetClients()).then(() => {
-  ReactDOM.render(jsx, document.getElementById('app'));
-});
 
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
-    console.log(`Logged in`);
+    console.log('Logged in');
+    store.dispatch(login(user.uid));
+    store.dispatch(startSetClients()).then(() => {
+      renderApp();
+      if (history.location.pathname === '/') {
+        history.push('/dashboard');
+      }
+    });
   } else {
-    console.log('Log out!');
+    store.dispatch(logout());
+    renderApp();
+    history.push('/');
   }
 });
 
@@ -104,3 +117,5 @@ firebase.auth().onAuthStateChanged(user => {
 // remove all console.logs
 
 // refactor all functional component and remove return keyword.
+
+// set up github login as well and consider authentication with email and password

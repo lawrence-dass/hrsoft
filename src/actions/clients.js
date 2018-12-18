@@ -9,6 +9,7 @@ export const addClient = client => ({
 });
 
 export const startAddClient = (clientData = {}) => {
+  console.log('startAddClient triggered');
   return dispatch => {
     const {
       title = '',
