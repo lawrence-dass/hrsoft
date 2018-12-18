@@ -6,7 +6,7 @@ import { startLogout } from '../actions/auth';
 export const Header = ({ startLogout }) => (
   <header>
     <h1>Hrsoft</h1>
-    <NavLink to="/" activeClassName="isActive" exact>
+    <NavLink to="/dashboard" activeClassName="isActive" exact>
       Dashboard
     </NavLink>
     <NavLink to="/create" activeClassName="isActive">
