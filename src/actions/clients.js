@@ -10,7 +10,8 @@ export const addClient = client => ({
 
 export const startAddClient = (clientData = {}) => {
   console.log('startAddClient triggered');
-  return dispatch => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
     const {
       title = '',
       firstName = '',
@@ -46,7 +47,7 @@ export const startAddClient = (clientData = {}) => {
     // console.log(client);
 
     return database
-      .ref('clients')
+      .ref(`users/${uid}/clients`)
       .push(client)
       .then(ref => {
         // console.log(ref.key);
@@ -69,9 +70,10 @@ export const removeClient = ({ id } = {}) => {
 };
 
 export const startRemoveClient = ({ id } = {}) => {
-  return dispatch => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
     return database
-      .ref(`clients/${id}`)
+      .ref(`users/${uid}/clients/${id}`)
       .remove()
       .then(() => {
         dispatch(removeClient({ id }));
@@ -89,9 +91,10 @@ export const editClient = (id, updates) => {
 };
 
 export const startEditClient = (id, updates) => {
-  return dispatch => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
     return database
-      .ref(`clients/${id}`)
+      .ref(`users/${uid}/clients/${id}`)
       .update(updates)
       .then(() => {
         dispatch(editClient(id, updates));
@@ -111,9 +114,11 @@ export const setClients = clients => {
 // export const startSetClients
 
 export const startSetClients = () => {
-  return dispatch => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
     return database
-      .ref('clients')
+      .ref(`users/${uid}/clients`)
+
       .once('value')
       .then(snapshot => {
         const clients = [];

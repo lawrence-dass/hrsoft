@@ -14,6 +14,8 @@ import clients from '../fixtures/clients';
 import database from '../../firebase/firebase';
 import { strict } from 'assert';
 
+const uid = 'mytestuid';
+const defaultAuthState = { auth: { uid } };
 const createMockStore = configureMockStore([thunk]);
 
 beforeEach(done => {
@@ -53,7 +55,7 @@ beforeEach(done => {
     }
   );
   database
-    .ref('clients')
+    .ref(`users/${uid}/clients`)
     .set(clientData)
     .then(() => {
       done();
@@ -66,7 +68,7 @@ test('should setup remove client action object', () => {
 });
 
 test('should remove client from firebase', done => {
-  const store = createMockStore({});
+  const store = createMockStore(defaultAuthState);
   const id = clients[2].id;
   store
     .dispatch(startRemoveClient({ id }))
@@ -76,7 +78,7 @@ test('should remove client from firebase', done => {
         type: 'REMOVE_CLIENT',
         id
       });
-      return database.ref(`clients/${id}`).once('value');
+      return database.ref(`users/${uid}/clients/${id}`).once('value');
     })
     .then(snapshot => {
       expect(snapshot.val()).toBeFalsy();
@@ -94,7 +96,7 @@ test('should setup edit client action object with given update', () => {
 });
 
 test('should edit client in firebase', done => {
-  const store = createMockStore({});
+  const store = createMockStore(defaultAuthState);
   const id = clients[0].id;
   const updates = { firstName: 'Edited' };
   store
@@ -106,7 +108,7 @@ test('should edit client in firebase', done => {
         id,
         updates
       });
-      return database.ref(`clients/${id}`).once('value');
+      return database.ref(`users/${uid}/clients/${id}`).once('value');
     })
     .then(snapshot => {
       expect(snapshot.val().firstName).toBe(updates.firstName);
@@ -138,7 +140,7 @@ test('should setup add Client action object with given values', () => {
 });
 
 test('should add client to the database and store', done => {
-  const store = createMockStore({});
+  const store = createMockStore(defaultAuthState);
   const clientData = {
     title: 'Mrs',
     firstName: 'Jay',
@@ -165,7 +167,7 @@ test('should add client to the database and store', done => {
     });
 
     database
-      .ref(`clients/${actions[0].client.id}`)
+      .ref(`users/${uid}/clients/${actions[0].client.id}`)
       .once('value')
       .then(snapshot => {
         expect(snapshot.val()).toEqual(clientData);
@@ -222,7 +224,7 @@ test('should setup set clients action object with data ', () => {
 });
 
 test('should fetch clients from firebase', done => {
-  const store = createMockStore({});
+  const store = createMockStore(defaultAuthState);
   store.dispatch(startSetClients()).then(() => {
     const actions = store.getActions();
     expect(actions[0]).toEqual({
