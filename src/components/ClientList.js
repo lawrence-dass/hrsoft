@@ -11,9 +11,10 @@ export const ClientList = props => (
       <p> Phone </p>
       <p> Gender </p>
       <p> Address </p>
-      <p> Status </p>
+      <p> Importance </p>
       <p> Profession/Field </p>
       <p> Member Type </p>
+      <p> Entry Data </p>
       <p> Last Communication </p>
       <p> Action </p>
       <p> Action </p>

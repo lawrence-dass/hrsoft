@@ -14,6 +14,7 @@ export const ClientListItem = ({
   status = 'N/A',
   field = 'N/A',
   memberType = 'N/A',
+  createdAt,
   lastCommunication = 'N/A',
   id,
   dispatch
@@ -33,6 +34,7 @@ export const ClientListItem = ({
       <p> {status}</p>
       <p> {field || 'No Record'}</p>
       <p> {memberType}</p>
+      <p> {moment(createdAt).format('DD/MM/YYYY')}</p>
       <p> {moment(lastCommunication).format('DD/MM/YYYY')}</p>
 
       <a

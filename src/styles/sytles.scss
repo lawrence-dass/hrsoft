@@ -141,12 +141,12 @@ body {
   grid-template-columns: repeat(11, 120px);
   text-align: center;
   width: 80%;
-  padding: 0 5%;
+  padding: 0 1px;
 }
 .clientListItem {
   display: grid;
-  grid-template-columns: repeat(11, 120px);
+  grid-template-columns: repeat(12, 120px);
   text-align: center;
   width: 80%;
-  padding: 0 5%;
+  padding: 0 1px;
 }
