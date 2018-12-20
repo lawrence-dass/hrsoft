@@ -15,7 +15,7 @@ import { firebase } from './firebase/firebase';
 // import getVisibleClients from './selectors/clients';
 
 const store = configureStore();
-console.log(store);
+// console.log(store);
 
 // const clientOne = store.dispatch(
 //   addClient({
@@ -83,7 +83,7 @@ ReactDOM.render(<p> Loading...</p>, document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
-    console.log('Logged in');
+    // console.log('Logged in');
     store.dispatch(login(user.uid));
     store.dispatch(startSetClients()).then(() => {
       renderApp();
@@ -119,3 +119,7 @@ firebase.auth().onAuthStateChanged(user => {
 // refactor all functional component and remove return keyword.
 
 // set up github login as well and consider authentication with email and password
+
+// warning when deleting the records
+
+// resume upload option

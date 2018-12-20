@@ -31,7 +31,7 @@ export const ClientListItem = ({
       <p> {gender}</p>
       <p> {address}</p>
       <p> {status}</p>
-      <p> {field}</p>
+      <p> {field || 'No Record'}</p>
       <p> {memberType}</p>
       <p> {lastCommunication}</p>
 

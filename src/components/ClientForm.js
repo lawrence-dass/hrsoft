@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { SingleDatePicker } from 'react-dates';
 import PhoneInput from 'react-phone-number-input';
 
 import moment from 'moment';
@@ -18,7 +19,7 @@ class ClientForm extends Component {
       field: props.client ? props.client.field : '',
       note: props.client ? props.client.note : '',
       lastCommuniation: props.client ? props.client.lastCommuniation : '',
-      memberType: props.client ? props.client.memberType : '',
+      memberType: props.client ? props.client.memberType : 'basic',
       createdAt: props.client ? moment(props.client.createdAt) : moment(),
       error: ''
     };
@@ -56,6 +57,7 @@ class ClientForm extends Component {
   };
 
   onGenderChange = e => {
+    console.log('onGenderChange triggered');
     const gender = e.target.value;
     this.setState(() => {
       return { gender };
@@ -78,6 +80,7 @@ class ClientForm extends Component {
 
   onMemberTypeChange = e => {
     const memberType = e.target.value;
+    console.log(memberType);
     this.setState(() => {
       return { memberType };
     });
@@ -97,16 +100,34 @@ class ClientForm extends Component {
     });
   };
 
+  onLastCommunicatedDate = lastCommuniation => {
+    if (lastCommuniation) {
+      this.setState(() => {
+        return {
+          lastCommuniation
+        };
+      });
+    }
+  };
+
+  onFocusChange = ({ focused }) => {
+    this.setState(() => {
+      return {
+        calendarFocused: focused
+      };
+    });
+  };
+
   onSubmit = e => {
     e.preventDefault();
     if (
       !this.state.firstName ||
       !this.state.lastName ||
-      // !this.state.phone ||
-      !this.state.email
-      // !this.state.gender ||
-      // !this.state.address ||
-      // !this.state.status
+      !this.state.phone ||
+      !this.state.email ||
+      !this.state.gender ||
+      !this.state.address ||
+      !this.state.status
     ) {
       this.setState(() => {
         return {
@@ -168,12 +189,12 @@ class ClientForm extends Component {
             value={this.state.phone}
             onChange={phone => this.setState({ phone })}
           />
-
-          <select name="gender" id="" onChange={this.onGenderChange}>
-            <option value="male"> M </option>
-            <option value="female"> F </option>
-            <option value="na"> N/A </option>
-          </select>
+          <label htmlFor="name"> Gender</label>
+          <div onChange={this.onGenderChange}>
+            <input type="radio" value="M" name="gender" /> M
+            <input type="radio" value="F" name="gender" /> F
+            <input type="radio" value="N/A" name="gender" /> Other
+          </div>
           <textarea
             name="address"
             id=""
@@ -183,7 +204,9 @@ class ClientForm extends Component {
             value={this.state.address}
             onChange={this.onAddressChange}
           />
+          <label htmlFor="field"> Profession/Field: </label>
           <input
+            name="field"
             type="text"
             value={this.state.field}
             placeholder="Field Here"
@@ -194,6 +217,7 @@ class ClientForm extends Component {
             <option value="gold"> Gold </option>
           </select>
           <select name="status" id="" onChange={this.onStatusChange}>
+            <option defaultValue="N/A" />
             <option value="veryhigh"> High Priorty </option>
             <option value="medium"> Unemployed </option>
             <option value="high"> Employed, Planning to Switch </option>
@@ -208,6 +232,15 @@ class ClientForm extends Component {
             placeholder="Client Notes (optional)"
             value={this.state.note}
             onChange={this.onNoteChange}
+          />
+          <SingleDatePicker
+            date={this.state.lastCommuniation}
+            onDateChange={this.onLastCommunicatedDate}
+            focused={this.state.calendarFocused}
+            onFocusChange={this.onFocusChange}
+            numberOfMonths={1}
+            isOutsideRange={() => false}
+            id="single_date_picker"
           />
           <button> Add Client</button>
         </form>

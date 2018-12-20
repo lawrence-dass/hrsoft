@@ -5,6 +5,19 @@ import getVisibleClients from '../selectors/clients';
 
 export const ClientList = props => (
   <div>
+    <div className="clientListHeading">
+      <p> Client Name </p>
+      <p> Email </p>
+      <p> Phone </p>
+      <p> Gender </p>
+      <p> Address </p>
+      <p> Status </p>
+      <p> Profession/Field </p>
+      <p> Member Type </p>
+      <p> Last Communication </p>
+      <p> Action </p>
+      <p> Action </p>
+    </div>
     {props.clients.length === 0 ? (
       <p> No Clients </p>
     ) : (

@@ -129,15 +129,24 @@ table {
 body {
   font-family: 'lato', sans-serif;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .isActive {
   font-weight: bold;
 }
 
+.clientListHeading {
+  display: grid;
+  grid-template-columns: repeat(11, 120px);
+  text-align: center;
+  width: 80%;
+  padding: 0 5%;
+}
 .clientListItem {
   display: grid;
-  grid-template-columns: repeat(11, 140px);
-
+  grid-template-columns: repeat(11, 120px);
+  text-align: center;
   width: 80%;
+  padding: 0 5%;
 }
