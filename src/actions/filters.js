@@ -18,6 +18,10 @@ export const sortByDate = () => ({
   type: 'SORT_BY_DATE'
 });
 
+export const sortByLastCommunication = () => ({
+  type: 'SORT_BY_LASTCOMMUNICATION'
+});
+
 export const setStartDate = startDate => ({
   type: 'SET_START_DATE',
   startDate

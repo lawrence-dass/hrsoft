@@ -18,7 +18,9 @@ class ClientForm extends Component {
       status: props.client ? props.client.status : '',
       field: props.client ? props.client.field : '',
       note: props.client ? props.client.note : '',
-      lastCommuniation: props.client ? props.client.lastCommuniation : '',
+      lastCommunication: props.client
+        ? moment(props.client.lastCommunication)
+        : moment(),
       memberType: props.client ? props.client.memberType : 'basic',
       createdAt: props.client ? moment(props.client.createdAt) : moment(),
       error: ''
@@ -100,11 +102,12 @@ class ClientForm extends Component {
     });
   };
 
-  onLastCommunicatedDate = lastCommuniation => {
-    if (lastCommuniation) {
+  onLastCommunicatedDate = lastCommunication => {
+    console.log(lastCommunication);
+    if (lastCommunication) {
       this.setState(() => {
         return {
-          lastCommuniation
+          lastCommunication
         };
       });
     }
@@ -152,7 +155,7 @@ class ClientForm extends Component {
         status: this.state.status,
         field: this.state.field,
         note: this.state.note,
-        lastCommuniation: this.state.lastCommuniation,
+        lastCommunication: this.state.lastCommunication.valueOf(),
         memberType: this.state.memberType,
         createdAt: this.state.createdAt.valueOf()
       });
@@ -234,7 +237,7 @@ class ClientForm extends Component {
             onChange={this.onNoteChange}
           />
           <SingleDatePicker
-            date={this.state.lastCommuniation}
+            date={this.state.lastCommunication}
             onDateChange={this.onLastCommunicatedDate}
             focused={this.state.calendarFocused}
             onFocusChange={this.onFocusChange}

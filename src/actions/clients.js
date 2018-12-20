@@ -23,7 +23,7 @@ export const startAddClient = (clientData = {}) => {
       status = '',
       field = '',
       note = '',
-      lastCommuniation = '',
+      lastCommunication = '',
       memberType = '',
       createdAt = 0
     } = clientData;
@@ -39,7 +39,7 @@ export const startAddClient = (clientData = {}) => {
       status,
       field,
       note,
-      lastCommuniation,
+      lastCommunication,
       memberType,
       createdAt
     };

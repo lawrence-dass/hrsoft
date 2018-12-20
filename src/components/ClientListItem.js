@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { startRemoveClient } from '../actions/clients';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 
 export const ClientListItem = ({
   firstName,
@@ -17,7 +18,6 @@ export const ClientListItem = ({
   id,
   dispatch
 }) => {
-  // console.log(props);
   return (
     <div className="clientListItem">
       <Link to={`/view/${id}`} className="clientListItem__name">
@@ -33,7 +33,7 @@ export const ClientListItem = ({
       <p> {status}</p>
       <p> {field || 'No Record'}</p>
       <p> {memberType}</p>
-      <p> {lastCommunication}</p>
+      <p> {moment(lastCommunication).format('DD/MM/YYYY')}</p>
 
       <a
         className="clientListItem__button--one"

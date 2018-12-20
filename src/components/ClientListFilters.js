@@ -7,7 +7,8 @@ import {
   sortByDate,
   sortByAlphabet,
   setStartDate,
-  setEndDate
+  setEndDate,
+  sortByLastCommunication
 } from '../actions/filters';
 
 // Component which help to render the for sorting and filtering clients
@@ -35,9 +36,17 @@ export class ClientListFilters extends React.Component {
   };
 
   onSortChange = e => {
-    e.target.value === 'Date'
-      ? this.props.sortByDate()
-      : this.props.sortByAlphabet();
+    console.log(e.target.value);
+
+    if (e.target.value === 'Date') {
+      this.props.sortByDate();
+    }
+    if (e.target.value === 'Alphabetically') {
+      this.props.sortByAlphabet();
+    }
+    if (e.target.value === 'Last Communication') {
+      this.props.sortByLastCommunication();
+    }
   };
 
   render() {
@@ -54,6 +63,9 @@ export class ClientListFilters extends React.Component {
           <option value={this.props.filters.date}> Date </option>
           <option value={this.props.filters.alphabetically}>
             Alphabetically
+          </option>
+          <option value={this.props.filters.sortByLastCommunication}>
+            Last Communication
           </option>
         </select>
 
@@ -84,6 +96,7 @@ const mapDispatchToProps = dispatch => ({
   setNameFilter: text => dispatch(setNameFilter(text)),
   sortByDate: () => dispatch(sortByDate()),
   sortByAlphabet: () => dispatch(sortByAlphabet()),
+  sortByLastCommunication: () => dispatch(sortByLastCommunication()),
   setStartDate: startDate => dispatch(setStartDate(startDate)),
   setEndDate: endDate => dispatch(setEndDate(endDate))
 });
