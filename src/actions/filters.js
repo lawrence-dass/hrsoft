@@ -22,6 +22,10 @@ export const sortByLastCommunication = () => ({
   type: 'SORT_BY_LASTCOMMUNICATION'
 });
 
+export const sortByMemberType = () => ({
+  type: 'SORT_BY_MEMBERTYPE'
+});
+
 export const setStartDate = startDate => ({
   type: 'SET_START_DATE',
   startDate

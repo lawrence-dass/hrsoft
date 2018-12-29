@@ -8,7 +8,8 @@ import {
   sortByAlphabet,
   setStartDate,
   setEndDate,
-  sortByLastCommunication
+  sortByLastCommunication,
+  sortByMemberType
 } from '../actions/filters';
 
 // Component which help to render the for sorting and filtering clients
@@ -47,6 +48,9 @@ export class ClientListFilters extends React.Component {
     if (e.target.value === 'Last Communication') {
       this.props.sortByLastCommunication();
     }
+    if (e.target.value === 'Member Type') {
+      this.props.sortByMemberType();
+    }
   };
 
   render() {
@@ -66,6 +70,9 @@ export class ClientListFilters extends React.Component {
           </option>
           <option value={this.props.filters.sortByLastCommunication}>
             Last Communication
+          </option>
+          <option value={this.props.filters.sortByMemberType}>
+            Member Type
           </option>
         </select>
 
@@ -97,6 +104,7 @@ const mapDispatchToProps = dispatch => ({
   sortByDate: () => dispatch(sortByDate()),
   sortByAlphabet: () => dispatch(sortByAlphabet()),
   sortByLastCommunication: () => dispatch(sortByLastCommunication()),
+  sortByMemberType: () => dispatch(sortByMemberType()),
   setStartDate: startDate => dispatch(setStartDate(startDate)),
   setEndDate: endDate => dispatch(setEndDate(endDate))
 });

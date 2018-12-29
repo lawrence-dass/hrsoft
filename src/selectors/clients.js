@@ -21,8 +21,12 @@ const getVisibleClients = (clients, { name, sortBy, startDate, endDate }) => {
         .toLowerCase()
         .includes(name.toLowerCase());
 
+      const phoneMatch = client.phone.includes(name);
+
       return (
-        startDateMatch && endDateMatch && (firstNameMatch || lastNameMatch)
+        startDateMatch &&
+        endDateMatch &&
+        (firstNameMatch || lastNameMatch || phoneMatch)
       );
     })
     .sort((a, b) => {
@@ -34,6 +38,9 @@ const getVisibleClients = (clients, { name, sortBy, startDate, endDate }) => {
       } else if (sortBy === 'lastCommunication') {
         // console.log('alpha sort');
         return a.lastCommunication > b.lastCommunication ? 1 : -1;
+      } else if (sortBy === 'memberType') {
+        // console.log('alpha sort');
+        return a.memberType > b.memberType ? -1 : 1;
       }
     });
 };
