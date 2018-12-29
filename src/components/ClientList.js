@@ -23,7 +23,7 @@ export const ClientList = props => (
       <p> No Clients </p>
     ) : (
       props.clients.map(client => {
-        console.log(client);
+        // console.log(client);
         return <ClientListItem key={client.id} {...client} />;
       })
     )}

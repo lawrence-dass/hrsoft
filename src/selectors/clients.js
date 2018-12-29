@@ -1,9 +1,8 @@
 // get visible clients
 import moment from 'moment';
 
-const getVisibleClients = (clients, { name, sortBy, startDate, endDate }) => {
-  // console.log(clients);
-  // console.log(startDate, endDate);
+const getVisibleClients = (clients, { input, sortBy, startDate, endDate }) => {
+  // console.log(input);
   return clients
     .filter(client => {
       const createdAtMoment = moment(client.createdAt);
@@ -16,12 +15,12 @@ const getVisibleClients = (clients, { name, sortBy, startDate, endDate }) => {
 
       const firstNameMatch = client.firstName
         .toLowerCase()
-        .includes(name.toLowerCase());
+        .includes(input.toLowerCase());
       const lastNameMatch = client.lastName
         .toLowerCase()
-        .includes(name.toLowerCase());
+        .includes(input.toLowerCase());
 
-      const phoneMatch = client.phone.includes(name);
+      const phoneMatch = client.phone.includes(input);
 
       return (
         startDateMatch &&

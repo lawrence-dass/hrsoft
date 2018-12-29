@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import 'react-dates/initialize';
 import { DateRangePicker } from 'react-dates';
 import {
-  setNameFilter,
+  setInputFilter,
   sortByDate,
   sortByAlphabet,
   setStartDate,
@@ -32,12 +32,13 @@ export class ClientListFilters extends React.Component {
     this.setState(() => ({ calendarFocused }));
   };
 
-  onTextChange = e => {
-    this.props.setNameFilter(e.target.value);
+  onInputChange = e => {
+    // console.log(e.target.value);
+    this.props.setInputFilter(e.target.value);
   };
 
   onSortChange = e => {
-    console.log(e.target.value);
+    // console.log(e.target.value);
 
     if (e.target.value === 'Date') {
       this.props.sortByDate();
@@ -58,8 +59,8 @@ export class ClientListFilters extends React.Component {
       <div>
         <input
           type="text"
-          value={this.props.filters.name}
-          onChange={this.onTextChange}
+          value={this.props.filters.input}
+          onChange={this.onInputChange}
         />
 
         {/* Drop down option for sortby, based on value of the option an action is dispatch to the store using terneray operator */}
@@ -100,7 +101,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  setNameFilter: text => dispatch(setNameFilter(text)),
+  setInputFilter: input => dispatch(setInputFilter(input)),
   sortByDate: () => dispatch(sortByDate()),
   sortByAlphabet: () => dispatch(sortByAlphabet()),
   sortByLastCommunication: () => dispatch(sortByLastCommunication()),

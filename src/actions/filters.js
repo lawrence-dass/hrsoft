@@ -1,14 +1,13 @@
 // action generator for filters
 
-export const setNameFilter = (name = '') => ({
-  type: 'SET_TEXT_FILTER',
-  name
-});
-
-export const setPhoneFilter = (phoneNumber = '') => ({
-  type: 'SET_PHONE_FILTER',
-  phoneNumber
-});
+export const setInputFilter = (input = '') => {
+  // console.log('setInputFilter');
+  console.log(input);
+  return {
+    type: 'SET_INPUT_FILTER',
+    input
+  };
+};
 
 export const sortByAlphabet = () => ({
   type: 'SORT_BY_ALPHABET'
