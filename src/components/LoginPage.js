@@ -4,8 +4,14 @@ import { startLogin } from '../actions/auth';
 
 export const LoginPage = ({ startLogin }) => {
   return (
-    <div>
-      <button onClick={startLogin}> Login </button>
+    <div className="landing">
+      <div className="landing__box">
+        <h1> HRsoft</h1>
+        <h3>
+          Database system for managing your potential client, now made easy.
+        </h3>
+        <button onClick={startLogin}> Login </button>
+      </div>
     </div>
   );
 };

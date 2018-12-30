@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { SingleDatePicker } from 'react-dates';
+import { Link } from 'react-router-dom';
 import PhoneInput from 'react-phone-number-input';
 
 import moment from 'moment';
@@ -15,7 +16,7 @@ class ClientForm extends Component {
       phone: props.client ? props.client.phone : '',
       email: props.client ? props.client.email : '',
       address: props.client ? props.client.address : '',
-      status: props.client ? props.client.status : '',
+      priority: props.client ? props.client.priority : '',
       field: props.client ? props.client.field : '',
       note: props.client ? props.client.note : '',
       lastCommunication: props.client
@@ -88,10 +89,11 @@ class ClientForm extends Component {
     });
   };
 
-  onStatusChange = e => {
-    const status = e.target.value;
+  onPriorityChange = e => {
+    console.log(e.target.value);
+    const priority = e.target.value;
     this.setState(() => {
-      return { status };
+      return { priority };
     });
   };
 
@@ -130,19 +132,23 @@ class ClientForm extends Component {
       !this.state.email ||
       !this.state.gender ||
       !this.state.address ||
-      !this.state.status
+      !this.state.priority
     ) {
       this.setState(() => {
         return {
-          error:
-            'Please complete the form before submitting, most the fields are required.'
+          error: `Please complete the form before submitting. Following are required:
+          ${!this.state.firstName ? 'First Name' : ''}
+          ${!this.state.lastName ? 'Last Name' : ''}
+          ${!this.state.email ? 'Email Address' : ''}
+          ${!this.state.phone ? 'Phone' : ''}
+          ${!this.state.gender ? 'Gender' : ''}
+          ${!this.state.address ? 'Address' : ''}
+          ${!this.state.priority ? 'Priority' : ''}`
         };
       });
     } else {
       this.setState(() => {
-        return {
-          error: ''
-        };
+        return { error: '' };
       });
       this.props.onSubmit({
         firstName: this.state.firstName,
@@ -152,7 +158,7 @@ class ClientForm extends Component {
         phone: this.state.phone,
         email: this.state.email,
         address: this.state.address,
-        status: this.state.status,
+        priority: this.state.priority,
         field: this.state.field,
         note: this.state.note,
         lastCommunication: this.state.lastCommunication.valueOf(),
@@ -165,7 +171,7 @@ class ClientForm extends Component {
   render() {
     return (
       <div>
-        {this.state.error && <h2> {this.state.error}</h2>}
+        {this.state.error && <h3> {this.state.error}</h3>}
         <form onSubmit={this.onSubmit}>
           <input
             type="text"
@@ -219,13 +225,13 @@ class ClientForm extends Component {
             <option value="basic"> Basic </option>
             <option value="gold"> Gold </option>
           </select>
-          <select name="status" id="" onChange={this.onStatusChange}>
+          <select name="priority" id="" onChange={this.onPriorityChange}>
             <option defaultValue="N/A" />
-            <option value="veryhigh"> High Priorty </option>
-            <option value="medium"> Unemployed </option>
-            <option value="high"> Employed, Planning to Switch </option>
-            <option value="low"> Unemployed, not interested </option>
-            <option value="verylow"> Employed, not interested </option>
+            <option value="5"> High Priorty </option>
+            <option value="4"> Unemployed </option>
+            <option value="3"> Employed, Planning to Switch </option>
+            <option value="2"> Unemployed, not interested </option>
+            <option value="1"> Employed, not interested </option>
           </select>
           <textarea
             name="note"
@@ -245,7 +251,10 @@ class ClientForm extends Component {
             isOutsideRange={() => false}
             id="single_date_picker"
           />
-          <button> Add Client</button>
+          <button> {this.props.client ? 'Submit' : 'Add Client'}</button>
+          <Link to="/dashboard">
+            <button> Cancel </button>
+          </Link>
         </form>
       </div>
     );

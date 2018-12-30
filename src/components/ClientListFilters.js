@@ -9,6 +9,7 @@ import {
   setStartDate,
   setEndDate,
   sortByLastCommunication,
+  sortByPriority,
   sortByMemberType
 } from '../actions/filters';
 
@@ -49,6 +50,9 @@ export class ClientListFilters extends React.Component {
     if (e.target.value === 'Last Communication') {
       this.props.sortByLastCommunication();
     }
+    if (e.target.value === 'Priority') {
+      this.props.sortByPriority();
+    }
     if (e.target.value === 'Member Type') {
       this.props.sortByMemberType();
     }
@@ -72,6 +76,7 @@ export class ClientListFilters extends React.Component {
           <option value={this.props.filters.sortByLastCommunication}>
             Last Communication
           </option>
+          <option value={this.props.filters.sortByPriority}>Priority</option>
           <option value={this.props.filters.sortByMemberType}>
             Member Type
           </option>
@@ -105,6 +110,7 @@ const mapDispatchToProps = dispatch => ({
   sortByDate: () => dispatch(sortByDate()),
   sortByAlphabet: () => dispatch(sortByAlphabet()),
   sortByLastCommunication: () => dispatch(sortByLastCommunication()),
+  sortByPriority: () => dispatch(sortByPriority()),
   sortByMemberType: () => dispatch(sortByMemberType()),
   setStartDate: startDate => dispatch(setStartDate(startDate)),
   setEndDate: endDate => dispatch(setEndDate(endDate))

@@ -37,6 +37,9 @@ const getVisibleClients = (clients, { input, sortBy, startDate, endDate }) => {
       } else if (sortBy === 'lastCommunication') {
         // console.log('alpha sort');
         return a.lastCommunication > b.lastCommunication ? 1 : -1;
+      } else if (sortBy === 'priority') {
+        // console.log('alpha sort');
+        return a.priority > b.priority ? -1 : 1;
       } else if (sortBy === 'memberType') {
         // console.log('alpha sort');
         return a.memberType > b.memberType ? -1 : 1;

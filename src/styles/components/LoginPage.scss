@@ -1,0 +1,34 @@
+.landing {
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(19, 21, 165, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url('../images/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  &__box {
+    background: fade-out(#fff, 0.2);
+    width: 20%;
+    height: 200px;
+    border-radius: 3px;
+    padding: 8px 32px;
+
+    & h1 {
+      color: rgb(0, 81, 255);
+      margin: 16 0 16px 0;
+    }
+
+    & h3 {
+      color: #333;
+      font-weight: 400;
+    }
+  }
+}

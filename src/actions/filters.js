@@ -21,6 +21,10 @@ export const sortByLastCommunication = () => ({
   type: 'SORT_BY_LASTCOMMUNICATION'
 });
 
+export const sortByPriority = () => ({
+  type: 'SORT_BY_PRIORITY'
+});
+
 export const sortByMemberType = () => ({
   type: 'SORT_BY_MEMBERTYPE'
 });

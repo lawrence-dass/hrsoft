@@ -21,6 +21,8 @@ const filtersReducer = (state = filtersReducerDefaultState, action) => {
       return { ...state, sortBy: 'date' };
     case 'SORT_BY_LASTCOMMUNICATION':
       return { ...state, sortBy: 'lastCommunication' };
+    case 'SORT_BY_PRIORITY':
+      return { ...state, sortBy: 'priority' };
     case 'SORT_BY_MEMBERTYPE':
       return { ...state, sortBy: 'memberType' };
     case 'SET_START_DATE':
