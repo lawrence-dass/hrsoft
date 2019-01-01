@@ -60,15 +60,20 @@ export class ClientListFilters extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="clientListFilter">
         <input
+          className="clientListFilter__search"
+          placeholder="Search"
           type="text"
           value={this.props.filters.input}
           onChange={this.onInputChange}
         />
 
         {/* Drop down option for sortby, based on value of the option an action is dispatch to the store using terneray operator */}
-        <select onChange={this.onSortChange}>
+        <select
+          className="clientListFilter__dropdown"
+          onChange={this.onSortChange}
+        >
           <option value={this.props.filters.date}> Date </option>
           <option value={this.props.filters.alphabetically}>
             Alphabetically

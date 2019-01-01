@@ -1,0 +1,43 @@
+.clientProfile {
+  &__heading {
+    background-color: $light-back-grey;
+  }
+
+  &__content {
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    align-items: center;
+    height: 10rem;
+
+    & h1 {
+      color: $secondary-grey;
+      font-weight: 300;
+      text-align: center;
+    }
+  }
+
+  &__list {
+    padding: 2rem 4rem;
+    width: 45%;
+    margin: 2rem auto;
+    border-radius: 4px;
+    color: rgb(128, 128, 128);
+
+    background: #ececec;
+    p {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__buttons {
+    width: 20%;
+    margin: 0 auto;
+
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+  }
+}

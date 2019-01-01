@@ -1,0 +1,39 @@
+.clientListSummary {
+  width: 100%;
+  margin: 0 auto;
+  color: #357faa;
+  background-color: $light-back-grey;
+  padding: 2rem 0;
+  height: 10rem;
+
+  &__container {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  h1 {
+    color: $secondary-grey;
+    font-weight: 300;
+    margin-bottom: 32px;
+  }
+
+  &__special {
+    font-weight: 400;
+  }
+
+  &__addClient {
+    text-decoration: none;
+    border: 1px solid $secondary-blue;
+    padding: 8px 16px;
+    border-radius: 2px;
+    background: $secondary-blue;
+    color: #fff;
+    transition: all 0.2s ease;
+    &:hover {
+      color: #3c77f5;
+      background: white;
+      border: 1px solid $secondary-blue;
+      background-color: $light-back-grey;
+    }
+  }
+}

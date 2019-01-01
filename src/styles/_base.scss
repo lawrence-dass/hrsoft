@@ -1,122 +1,32 @@
-// CSS Reset
-
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
-  border: 0;
+}
+
+* {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
   font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol,
-ul {
-  list-style: none;
-}
-blockquote,
-q {
-  quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
+  scroll-behavior: smooth;
+
+  @include respond(tablet-land) {
+    font-size: 93.75%;
+  }
+  @include respond(tablet-port) {
+    font-size: 87.5%;
+  }
+  @include respond(large-phone) {
+    font-size: 82.5%;
+  }
+  @include respond(phone) {
+    font-size: 75%;
+  }
 }
 
 // CSS reset End
@@ -131,3 +41,15 @@ body {
   width: 100%;
   box-sizing: border-box;
 }
+
+$dark-blue: #303f9f; // DARK PRIMARY COLOR #303F9F
+$primary-blue: #3f51b5; // PRIMARY COLOR#3F51B5;
+$secondary-blue: #536dfe; // ACCENT COLOR#536DFE
+$primary-grey: #212121; // PRIMARY TEXT#212121
+$secondary-grey: #757575; // SECONDARY TEXT#757575
+$tertiary-grey: #bdbdbd; // DIVIDER COLOR#BDBDBD
+$light-grey: #c5cae9; // LIGHT PRIMARY COLOR#C5CAE9
+$light-back-grey: #e1e5f7;
+$white: #ffffff; // TEXT / ICONS#FFFFFF
+$red: #ff5252; // ACCENT COLOR#FF5252
+$light-pink: #ffcdd2; // LIGHT PRIMARY COLOR#FFCDD2

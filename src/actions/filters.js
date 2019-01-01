@@ -9,9 +9,12 @@ export const setInputFilter = (input = '') => {
   };
 };
 
-export const sortByAlphabet = () => ({
-  type: 'SORT_BY_ALPHABET'
-});
+export const sortByAlphabet = () => {
+  console.log('sortByAlphabet triggered');
+  return {
+    type: 'SORT_BY_ALPHABET'
+  };
+};
 
 export const sortByDate = () => ({
   type: 'SORT_BY_DATE'

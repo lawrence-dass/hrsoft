@@ -11,7 +11,12 @@ export class EditClientPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="editClientPage">
+        <div className="editClientPage__heading">
+          <div className="editClientPage__content">
+            <h1>Edit Client Details</h1>
+          </div>
+        </div>
         <ClientForm client={this.props.client} onSubmit={this.onSubmit} />
       </div>
     );

@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { startRemoveClient } from '../actions/clients';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
+import bin from '../images/bin5.svg';
+import edit from '../images/edit.svg';
 
 export const ClientListItem = ({
   firstName,
@@ -10,7 +12,6 @@ export const ClientListItem = ({
   email,
   phone,
   gender = 'N/A',
-  address,
   priority = 'N/A',
   field = 'N/A',
   memberType = 'N/A',
@@ -39,46 +40,48 @@ export const ClientListItem = ({
     default:
       priorityRating = 'N/A';
   }
-  console.log(gender);
 
   return (
     <div className="clientListItem">
       <Link to={`/view/${id}`} className="clientListItem__name">
         <p>
-          {gender === 'N/A' ? '' : gender === 'M' ? 'Mr. ' : 'Ms. '}
           {firstName} {lastName}
         </p>
       </Link>
 
-      <p> {email}</p>
+      <p className="clientListItem__email"> {email}</p>
       <p> {phone}</p>
-      <p> {gender}</p>
-      <p> {address}</p>
       <p> {priorityRating}</p>
-      <p> {field || 'No Record'}</p>
-      <p> {memberType}</p>
+      <p className="clientListItem__profession"> {field || 'No Record'}</p>
+      <p className="clientListItem__memberType"> {memberType}</p>
       <p> {moment(createdAt).format('DD/MM/YYYY')}</p>
       <p> {moment(lastCommunication).format('DD/MM/YYYY')}</p>
 
-      <a
-        className="clientListItem__butt on--one"
-        onClick={() => {
-          if (confirm(`Are you sure you wanna delete ${firstName}'s record?`)) {
-            dispatch(startRemoveClient({ id }));
-          }
-        }}
-      >
-        Remove
-      </a>
+      <span className="clientListItem__actions">
+        <a
+          className="clientListItem__button--one"
+          onClick={() => {
+            if (
+              confirm(`Are you sure you wanna delete ${firstName}'s record?`)
+            ) {
+              dispatch(startRemoveClient({ id }));
+            }
+          }}
+        >
+          <img src={bin} className="binLogo" alt="" />
+        </a>
 
-      <Link
-        to={`/edit/${id}`}
-        className="clientListItem__button clientListItem__button--two"
-      >
-        Edit
-      </Link>
+        <Link
+          to={`/edit/${id}`}
+          className="clientListItem__button clientListItem__button--two"
+        >
+          <img src={edit} className="editLogo" alt="Delete" />
+        </Link>
+      </span>
     </div>
   );
 };
 
 export default connect()(ClientListItem);
+
+//    {gender === 'N/A' ? '' : gender === 'M' ? 'Mr. ' : 'Ms. '}

@@ -1,0 +1,172 @@
+.clientForm {
+  &__form {
+    width: 60%;
+    // background-color: #ececec;
+    margin: 0 auto;
+    padding: 1rem;
+    border-radius: 3px;
+  }
+
+  &__formGroup {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    margin: 1.25rem 0;
+    align-items: center;
+  }
+
+  & label {
+    color: #757575;
+  }
+
+  &__firstName {
+    height: 40px;
+    width: 230px;
+    border-radius: 3px;
+    border: none;
+    border: 1px solid rgb(177, 177, 177);
+    padding: 0 1rem;
+    color: #757575;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: bold;
+
+    &::placeholder {
+      font-family: inherit;
+      border-radius: 4px;
+      color: #757575;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+  }
+  &__lastName {
+    @extend .clientForm__firstName;
+    width: 160px;
+    margin-left: 1rem;
+  }
+
+  &__email {
+    border: none;
+    font-family: inherit;
+    border-radius: 4px;
+    color: #757575;
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 0 1rem;
+    height: 40px;
+    width: 300px;
+    border: 1px solid rgb(177, 177, 177);
+  }
+
+  &__gender {
+    color: #505050;
+    & *:not(:nth-child(1)) {
+      margin: 0 0.2rem 0 0.75rem;
+    }
+  }
+
+  &__address,
+  &__note {
+    border: none;
+    font-family: inherit;
+    border-radius: 4px;
+    color: #757575;
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    height: 70px;
+    width: 410px;
+    border: 1px solid rgb(177, 177, 177);
+  }
+  &__field {
+    border: none;
+    font-family: inherit;
+    border-radius: 4px;
+    color: #757575;
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    height: 40px;
+    width: 410px;
+    border: 1px solid rgb(177, 177, 177);
+  }
+
+  &__memberType,
+  &__priority {
+    height: 40px;
+    color: #757575;
+    background: $white;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 0.9rem;
+    width: 295px;
+  }
+
+  &__buttons {
+    display: flex;
+    width: 32.5%;
+    margin: 0 auto;
+    justify-content: space-around;
+
+    &--one,
+    &--two {
+      padding: 0.75rem 2rem;
+      color: #757575;
+      font-family: inherit;
+      font-weight: bold;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    &--one {
+      background: $secondary-blue;
+      color: $white;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: $secondary-blue;
+        background: $white;
+        border: 1px solid $secondary-blue;
+      }
+    }
+
+    &--two {
+      transition: all 0.3s ease;
+      &:hover {
+        color: $red;
+        background: $white;
+        border: 1px solid $red;
+      }
+    }
+  }
+}
+
+.SingleDatePickerInput {
+  border: 1px solid rgb(177, 177, 177) !important;
+  border-radius: 4px !important;
+  padding: 0.1rem;
+}
+
+.react-phone-number-input__country {
+  padding: 0.5rem !important;
+}
+
+#single_date_picker {
+  color: #757575;
+  font-size: 0.85rem !important;
+  font-weight: bold !important;
+}
+
+.react-phone-number-input__input {
+  font-family: inherit !important;
+  padding: 0 1rem !important;
+  border: none !important;
+  border: 1px solid rgb(177, 177, 177) !important;
+  height: 40px !important;
+  border-radius: 4px !important;
+  color: #757575 !important;
+  width: 242px !important;
+  font-size: 0.9rem !important;
+  display: inline-block !important;
+  flex: none !important;
+  font-weight: bold !important;
+}

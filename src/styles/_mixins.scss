@@ -1,0 +1,53 @@
+// Media Query Manager
+
+/*
+Breakpoints
+0 - 320px - phone
+320px - 600px large-phone
+600px - 900px Tablet portrait
+900px -1200px Tablet landscape
+1200px -1800px Desktop
+1800px + Big Desktop
+
+Breakpoints option
+- phone
+- large-phone
+- tablet-port
+- tablet-land
+- big-desktop
+*/
+
+// Unit conversion to em: 1em = 16px
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 22.5em) {
+      // 600px
+      @content;
+    }
+  }
+  @if $breakpoint == large-phone {
+    @media (max-width: 37.5em) {
+      // 600px
+      @content;
+    }
+  }
+  @if $breakpoint == tablet-port {
+    @media (max-width: 56.25em) {
+      // 900px
+      @content;
+    }
+  }
+  @if $breakpoint == tablet-land {
+    @media (max-width: 75em) {
+      // 1200px
+      @content;
+    }
+  }
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) {
+      // 1800px
+      @content;
+    }
+  }
+}

@@ -11,8 +11,13 @@ export class AddClientPage extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1> Add New Client </h1>
+      <div className="addClientPage">
+        <div className="addClientPage__heading">
+          <div className="addClientPage__content">
+            <h1> Add New Client </h1>
+          </div>
+        </div>
+
         <ClientForm onSubmit={this.onSubmit} />
       </div>
     );

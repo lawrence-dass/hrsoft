@@ -16,6 +16,7 @@ const filtersReducer = (state = filtersReducerDefaultState, action) => {
       // console.log(action.input);
       return { ...state, input: action.input };
     case 'SORT_BY_ALPHABET':
+      console.log('SORT_BY_ALPHABET case');
       return { ...state, sortBy: 'alphabetically' };
     case 'SORT_BY_DATE':
       return { ...state, sortBy: 'date' };

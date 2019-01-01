@@ -1,0 +1,69 @@
+.clientListItems {
+  & div {
+    color: #7a7d82;
+    font-size: 14px;
+
+    border-radius: 3px;
+  }
+
+  & div:nth-child(odd) {
+    background: #ececec;
+  }
+  & div:nth-child(even) {
+    background: #ffffff;
+  }
+}
+
+.clientListItem {
+  display: grid;
+  grid-template-columns: 1.55fr 1.85fr 1.25fr 80px 1fr 100px 100px 100px 100px;
+  text-align: center;
+  align-content: center;
+  margin: 0 auto;
+  width: 90%;
+  padding: 0.5rem 0 0.3rem 0;
+
+  & > * {
+    align-self: center;
+  }
+
+  &__name {
+    text-transform: capitalize;
+    text-decoration: none;
+    color: rgb(128, 128, 128);
+    font-weight: bold;
+    align-content: center;
+  }
+
+  &__email {
+    text-transform: lowercase;
+  }
+
+  &__memberType {
+    text-transform: capitalize;
+  }
+
+  &__profession {
+    text-transform: capitalize;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.binLogo {
+  width: 1rem;
+  cursor: pointer;
+  margin: 0 8px;
+}
+
+.editLogo {
+  width: 1.4rem;
+  cursor: pointer;
+  background-color: #8596fc;
+  border-radius: 50%;
+  padding: 3px;
+}

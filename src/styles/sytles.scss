@@ -1,21 +1,16 @@
+@import './mixins';
 @import './base';
 @import './components/LoginPage.scss';
+@import './components/Header.scss';
+@import './components/ClientListSummary.scss';
+@import './components//ClientListFilter.scss';
+@import './components/ClientList.scss';
+@import './components/ClientListItem.scss';
+@import './components/EditClientPage.scss';
+@import './components/ClientForm.scss';
+@import './components//AddClientPage.scss';
+@import './components/ClientProfile.scss';
 
 .isActive {
   font-weight: bold;
-}
-
-.clientListHeading {
-  display: grid;
-  grid-template-columns: repeat(12, 120px);
-  text-align: center;
-  padding: 0 1px;
-  margin: 0 auto;
-}
-.clientListItem {
-  display: grid;
-  grid-template-columns: repeat(12, 120px);
-  text-align: center;
-  padding: 0 1px;
-  margin: 0 auto;
 }

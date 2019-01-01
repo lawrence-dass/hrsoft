@@ -1,0 +1,18 @@
+.addClientPage {
+  &__heading {
+    background-color: $light-back-grey;
+  }
+
+  &__content {
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    align-items: center;
+    height: 10rem;
+
+    & h1 {
+      color: $secondary-grey;
+      font-weight: 300;
+    }
+  }
+}

@@ -170,91 +170,151 @@ class ClientForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="clientForm">
         {this.state.error && <h3> {this.state.error}</h3>}
-        <form onSubmit={this.onSubmit}>
-          <input
-            type="text"
-            placeholder="First Name"
-            value={this.state.firstName}
-            onChange={this.onFirstNameChange}
-            autoFocus
-          />
-          <input
-            type="text"
-            placeholder="Last Name"
-            value={this.state.lastName}
-            onChange={this.onLastNameChange}
-          />
-          <input
-            type="email"
-            placeholder="Email here"
-            value={this.state.email}
-            onChange={this.onEmailChange}
-          />
-
-          <PhoneInput
-            placeholder="Enter phone number"
-            value={this.state.phone}
-            onChange={phone => this.setState({ phone })}
-          />
-          <label htmlFor="name"> Gender</label>
-          <div onChange={this.onGenderChange}>
-            <input type="radio" value="M" name="gender" /> M
-            <input type="radio" value="F" name="gender" /> F
-            <input type="radio" value="N/A" name="gender" /> Other
+        <form className="clientForm__form" onSubmit={this.onSubmit}>
+          <div className="clientForm__formGroup">
+            <label className="clientForm__name" htmlFor="firstName">
+              Client's name:
+            </label>
+            <span>
+              <input
+                className="clientForm__firstName"
+                type="text"
+                name="firstName"
+                placeholder="First Name"
+                value={this.state.firstName}
+                onChange={this.onFirstNameChange}
+                autoFocus
+              />
+              <input
+                className="clientForm__lastName"
+                type="text"
+                placeholder="Last Name"
+                value={this.state.lastName}
+                onChange={this.onLastNameChange}
+              />
+            </span>
           </div>
-          <textarea
-            name="address"
-            id=""
-            cols="30"
-            rows="10"
-            placeholder="Address here"
-            value={this.state.address}
-            onChange={this.onAddressChange}
-          />
-          <label htmlFor="field"> Profession/Field: </label>
-          <input
-            name="field"
-            type="text"
-            value={this.state.field}
-            placeholder="Field Here"
-            onChange={this.onFieldChange}
-          />
-          <select name="memberType" id="" onChange={this.onMemberTypeChange}>
-            <option value="basic"> Basic </option>
-            <option value="gold"> Gold </option>
-          </select>
-          <select name="priority" id="" onChange={this.onPriorityChange}>
-            <option defaultValue="N/A" />
-            <option value="5"> High Priorty </option>
-            <option value="4"> Unemployed </option>
-            <option value="3"> Employed, Planning to Switch </option>
-            <option value="2"> Unemployed, not interested </option>
-            <option value="1"> Employed, not interested </option>
-          </select>
-          <textarea
-            name="note"
-            id=""
-            cols="30"
-            rows="10"
-            placeholder="Client Notes (optional)"
-            value={this.state.note}
-            onChange={this.onNoteChange}
-          />
-          <SingleDatePicker
-            date={this.state.lastCommunication}
-            onDateChange={this.onLastCommunicatedDate}
-            focused={this.state.calendarFocused}
-            onFocusChange={this.onFocusChange}
-            numberOfMonths={1}
-            isOutsideRange={() => false}
-            id="single_date_picker"
-          />
-          <button> {this.props.client ? 'Submit' : 'Add Client'}</button>
-          <Link to="/dashboard">
-            <button> Cancel </button>
-          </Link>
+
+          <div className="clientForm__formGroup">
+            <label htmlFor="email"> Email: </label>
+            <input
+              className="clientForm__email"
+              type="email"
+              placeholder="Email here"
+              value={this.state.email}
+              onChange={this.onEmailChange}
+            />
+          </div>
+
+          <div className="clientForm__formGroup">
+            <label htmlFor="phoneNumber"> Phone No. :</label>
+            <PhoneInput
+              placeholder="Enter phone number"
+              value={this.state.phone}
+              onChange={phone => this.setState({ phone })}
+            />
+          </div>
+
+          <div className="clientForm__formGroup">
+            <label htmlFor="name">Gender:</label>
+            <div className="clientForm__gender" onChange={this.onGenderChange}>
+              <input type="radio" value="M" name="gender" /> M
+              <input type="radio" value="F" name="gender" /> F
+              <input type="radio" value="N/A" name="gender" /> N/A
+            </div>
+          </div>
+
+          <div className="clientForm__formGroup">
+            <label htmlFor="address">Address:</label>
+            <textarea
+              className="clientForm__address"
+              name="address"
+              id=""
+              cols="30"
+              rows="10"
+              placeholder="Address here"
+              value={this.state.address}
+              onChange={this.onAddressChange}
+            />
+          </div>
+
+          <div className="clientForm__formGroup">
+            <label htmlFor="field"> Profession/Field: </label>
+            <input
+              className="clientForm__field"
+              name="field"
+              type="text"
+              value={this.state.field}
+              placeholder="Field Here"
+              onChange={this.onFieldChange}
+            />
+          </div>
+          <div className="clientForm__formGroup">
+            <label htmlFor="memberType">Member Type:</label>
+            <select
+              className="clientForm__memberType"
+              name="memberType"
+              id=""
+              onChange={this.onMemberTypeChange}
+            >
+              <option value="basic">Basic</option>
+              <option value="gold">Gold</option>
+            </select>
+          </div>
+
+          <div className="clientForm__formGroup">
+            <label htmlFor="priority">Status/Priority Level:</label>
+            <select
+              name="priority"
+              className="clientForm__priority"
+              onChange={this.onPriorityChange}
+            >
+              <option defaultValue="N/A" />
+              <option value="5"> High Priorty </option>
+              <option value="4"> Unemployed </option>
+              <option value="3"> Employed, Planning to Switch </option>
+              <option value="2"> Unemployed, not interested </option>
+              <option value="1"> Employed, not interested </option>
+            </select>
+          </div>
+
+          <div className="clientForm__formGroup">
+            <label htmlFor="note">Client's Note:</label>
+            <textarea
+              className="clientForm__note"
+              name="note"
+              id=""
+              cols="30"
+              rows="10"
+              placeholder="Client Notes (optional)"
+              value={this.state.note}
+              onChange={this.onNoteChange}
+            />
+          </div>
+
+          <div className="clientForm__formGroup">
+            <label htmlFor="lastCommunication"> Last Communication: </label>
+            <SingleDatePicker
+              date={this.state.lastCommunication}
+              onDateChange={this.onLastCommunicatedDate}
+              focused={this.state.calendarFocused}
+              onFocusChange={this.onFocusChange}
+              numberOfMonths={1}
+              isOutsideRange={() => false}
+              id="single_date_picker"
+            />
+          </div>
+
+          <div className="clientForm__buttons">
+            <button className="clientForm__buttons--one">
+              {this.props.client ? 'Submit' : 'Add Client'}
+            </button>
+            <Link to="/dashboard">
+              <button className="clientForm__buttons--two"> Cancel </button>
+            </Link>
+          </div>
         </form>
       </div>
     );

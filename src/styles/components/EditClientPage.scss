@@ -1,0 +1,18 @@
+.editClientPage {
+  &__content {
+    height: 10rem;
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    align-items: center;
+
+    & h1 {
+      color: $secondary-grey;
+      font-weight: 300;
+    }
+  }
+
+  &__heading {
+    background-color: $light-back-grey;
+  }
+}

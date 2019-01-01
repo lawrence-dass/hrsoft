@@ -1,0 +1,56 @@
+.clientListFilter {
+  width: 90%;
+  margin: 0 auto;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  &__search {
+    padding: 0.55rem;
+    border: none;
+    border-radius: 4px;
+    border: 1px solid #dbdbdb;
+    color: #757575;
+    font-size: 1rem;
+    margin-right: 1rem;
+    font-family: inherit;
+    width: 10rem;
+
+    &::placeholder {
+      color: #757575;
+    }
+  }
+
+  &__dropdown {
+    width: 10rem;
+    padding: 16px;
+    border: none;
+    border-radius: 15px;
+    border: 1px solid #dbdbdb;
+    color: #757575;
+    font-size: 16px;
+    margin-right: 1rem;
+    font-family: inherit;
+    height: 39px;
+    background-color: white;
+  }
+}
+
+.DateInput {
+  margin-left: 5px !important;
+}
+.DateRangePickerInput__withBorder {
+  border-radius: 4px !important;
+}
+
+.DateInput_input {
+  padding: 1.15rem !important;
+  height: 1rem !important;
+  font-size: 16px !important;
+
+  font-family: inherit !important;
+  font-weight: 400 !important;
+  border-bottom: none !important;
+  // color: #801b1b !important;
+}
