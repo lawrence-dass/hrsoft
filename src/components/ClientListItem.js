@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import bin from '../images/bin5.svg';
 import edit from '../images/edit.svg';
+import readMore from '../images/read-more.svg';
 
 export const ClientListItem = ({
   firstName,
@@ -45,8 +46,9 @@ export const ClientListItem = ({
     <div className="clientListItem">
       <Link to={`/view/${id}`} className="clientListItem__name">
         <p>
-          {firstName} {lastName}
+          {firstName} {lastName}{' '}
         </p>
+        <img src={readMore} className="readMore" alt="" />
       </Link>
 
       <p className="clientListItem__email"> {email}</p>

@@ -18,7 +18,7 @@ export const ClientList = props => (
     </div>
     <div className="clientListItems">
       {props.clients.length === 0 ? (
-        <p> No Clients </p>
+        <p className="clientListItems__message"> *** No Clients *** </p>
       ) : (
         props.clients.map(client => {
           // console.log(client);

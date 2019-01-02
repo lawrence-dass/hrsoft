@@ -32,12 +32,37 @@
   }
 
   &__buttons {
-    width: 20%;
+    width: 30%;
     margin: 0 auto;
-
     display: grid;
+    grid-gap: 0.5rem;
     justify-content: center;
     grid-template-columns: repeat(3, 1fr);
     text-align: center;
+
+    &--one {
+      text-decoration: none;
+      background-color: $secondary-blue;
+      color: $white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 3px;
+    }
+    &--two {
+      text-decoration: none;
+      border: 1px solid rgb(175, 174, 174);
+      color: grey;
+      padding: 0.5rem 1.5rem;
+      border-radius: 3px;
+    }
+
+    &--three {
+      text-decoration: none;
+      border: 1px solid grey;
+      color: $red;
+      padding: 0.5rem 1.5rem;
+      border-radius: 3px;
+      font-family: inherit;
+      font-size: 1rem;
+    }
   }
 }

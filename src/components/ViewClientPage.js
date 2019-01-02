@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { startRemoveClient } from '../actions/clients';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 
 export class ViewClientPage extends React.Component {
   render() {
-    console.log(this.props);
+    const { id, firstName } = this.props.client;
+    const { dispatch } = this.props;
     return (
       <div className="clientProfile">
         <div className="clientProfile__heading">
@@ -67,9 +69,25 @@ export class ViewClientPage extends React.Component {
           </p>
         </div>
         <div className="clientProfile__buttons">
-          <Link to="/dashboard">Edit</Link>
-          <Link to="/dashboard">Go back</Link>
-          <Link to="/dashboard">Delete</Link>
+          <Link className="clientProfile__buttons--one" to={`/edit/${id}`}>
+            Edit
+          </Link>
+          <Link className="clientProfile__buttons--two" to="/dashboard">
+            Go back
+          </Link>
+          <button
+            className="clientProfile__buttons--three"
+            onClick={() => {
+              if (
+                confirm(`Are you sure you wanna delete ${firstName}'s record?`)
+              ) {
+                dispatch(startRemoveClient({ id }));
+                this.props.history.push('/');
+              }
+            }}
+          >
+            Delete
+          </button>
         </div>
       </div>
     );

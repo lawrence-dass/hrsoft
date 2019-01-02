@@ -171,7 +171,9 @@ class ClientForm extends Component {
   render() {
     return (
       <div className="clientForm">
-        {this.state.error && <h3> {this.state.error}</h3>}
+        {this.state.error && (
+          <p className="clientForm__error"> {this.state.error}</p>
+        )}
         <form className="clientForm__form" onSubmit={this.onSubmit}>
           <div className="clientForm__formGroup">
             <label className="clientForm__name" htmlFor="firstName">

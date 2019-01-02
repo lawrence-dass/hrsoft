@@ -7,6 +7,12 @@
     border-radius: 3px;
   }
 
+  &__error {
+    font-style: italic;
+    text-align: center;
+    color: $red;
+  }
+
   &__formGroup {
     display: grid;
     grid-template-columns: 2fr 3fr;
