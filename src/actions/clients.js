@@ -13,7 +13,6 @@ export const startAddClient = (clientData = {}) => {
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     const {
-      title = '',
       firstName = '',
       lastName = '',
       gender = '',
@@ -29,7 +28,6 @@ export const startAddClient = (clientData = {}) => {
     } = clientData;
 
     const client = {
-      title,
       firstName,
       lastName,
       gender,
@@ -44,7 +42,7 @@ export const startAddClient = (clientData = {}) => {
       createdAt
     };
 
-    // console.log(client);
+    console.log(client);
 
     return database
       .ref(`users/${uid}/clients`)
