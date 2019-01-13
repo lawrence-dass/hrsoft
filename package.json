@@ -8,12 +8,14 @@
     "serve-build": "parcel serve prod/index.html",
     "test": "jest --config=jest.config.json --watch",
     "start": "node server/server.js",
-    "heroku-postbuild": "yarn run build"
+    "heroku-postbuild": "yarn run build",
+    "deploy": "git push heroku master"
   },
   "author": "lawrence4code",
   "license": "MIT",
   "dependencies": {
     "babel-core": "^6.26.3",
+    "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "firebase": "^5.7.0",
     "history": "^4.7.2",
