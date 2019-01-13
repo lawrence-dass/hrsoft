@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import { ClientListFilters } from '../../components/ClientListFilters';
 import { filters, altFilters } from '../fixtures/filters.js';
 
-let setNameFilter,
+let setInputFilter,
   sortByDate,
   sortByAlphabet,
   setStartDate,
@@ -11,7 +11,7 @@ let setNameFilter,
   wrapper;
 
 beforeEach(() => {
-  setNameFilter = jest.fn();
+  setInputFilter = jest.fn();
   sortByDate = jest.fn();
   sortByAlphabet = jest.fn();
   setStartDate = jest.fn();
@@ -19,7 +19,7 @@ beforeEach(() => {
   wrapper = shallow(
     <ClientListFilters
       filters={filters}
-      setNameFilter={setNameFilter}
+      setInputFilter={setInputFilter}
       sortByDate={sortByDate}
       sortByAlphabet={sortByAlphabet}
       setStartDate={setStartDate}
@@ -33,7 +33,7 @@ test('should render ClientListFilter correctly', () => {
 });
 
 test('should render ClientListFilter with altFilter correctly', () => {
-  wrapper.setProps({ fitlers: altFilters });
+  wrapper.setProps({ filters: altFilters });
   expect(wrapper).toMatchSnapshot();
 });
 
@@ -42,19 +42,5 @@ test('should handle text change', () => {
   wrapper.find('input').simulate('change', {
     target: { value }
   });
-  expect(setNameFilter).toHaveBeenLastCalledWith(value);
+  expect(setInputFilter).toHaveBeenLastCalledWith(value);
 });
-
-// test('should sort by date', () => {
-//   const value = 'date';
-//   // wrapper.setProps({ fitlers: altFilters });
-//   wrapper.find('select').simulate('change', { target: { value } });
-//   expect(sortByDate).toHaveBeenCalled();
-// });
-
-// test('should sort by alphabetically', () => {
-//   const value = 'date';
-//   // wrapper.setProps({ fitlers: altFilters });
-//   wrapper.find('select').simulate('change', { target: { value } });
-//   expect(sortByDate).toHaveBeenCalled();
-// });

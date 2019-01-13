@@ -27,7 +27,3 @@ export default connect(
   undefined,
   mapDispatchToProps
 )(Header);
-
-// <NavLink to="/create" activeClassName="isActive">
-//   Add Client
-//     </NavLink>

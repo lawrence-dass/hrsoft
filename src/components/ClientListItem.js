@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { startRemoveClient } from '../actions/clients';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import bin from '../images/bin5.svg';
+import bin from '../images/bin.svg';
 import edit from '../images/edit.svg';
 import readMore from '../images/read-more.svg';
 
@@ -12,7 +12,6 @@ export const ClientListItem = ({
   lastName,
   email,
   phone,
-  gender = 'N/A',
   priority = 'N/A',
   field = 'N/A',
   memberType = 'N/A',

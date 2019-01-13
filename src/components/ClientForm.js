@@ -11,7 +11,6 @@ class ClientForm extends Component {
     this.state = {
       firstName: props.client ? props.client.firstName : '',
       lastName: props.client ? props.client.lastName : '',
-      title: props.client ? props.client.title : '',
       gender: props.client ? props.client.gender : '',
       phone: props.client ? props.client.phone : '',
       email: props.client ? props.client.email : '',
@@ -60,7 +59,6 @@ class ClientForm extends Component {
   };
 
   onGenderChange = e => {
-    console.log('onGenderChange triggered');
     const gender = e.target.value;
     this.setState(() => {
       return { gender };
@@ -83,14 +81,13 @@ class ClientForm extends Component {
 
   onMemberTypeChange = e => {
     const memberType = e.target.value;
-    console.log(memberType);
+
     this.setState(() => {
       return { memberType };
     });
   };
 
   onPriorityChange = e => {
-    console.log(e.target.value);
     const priority = e.target.value;
     this.setState(() => {
       return { priority };
@@ -105,7 +102,6 @@ class ClientForm extends Component {
   };
 
   onLastCommunicatedDate = lastCommunication => {
-    console.log(lastCommunication);
     if (lastCommunication) {
       this.setState(() => {
         return {

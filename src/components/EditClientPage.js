@@ -32,7 +32,6 @@ const mapStateToProps = (state, props) => {
 const mapDispatchToProps = dispatch => {
   return {
     startEditClient: (id, client) => {
-      console.log(id, client);
       return dispatch(startEditClient(id, client));
     }
   };

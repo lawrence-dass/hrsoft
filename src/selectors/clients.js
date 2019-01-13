@@ -32,16 +32,12 @@ const getVisibleClients = (clients, { input, sortBy, startDate, endDate }) => {
       if (sortBy === 'date') {
         return a.createdAt < b.createdAt ? 1 : -1;
       } else if (sortBy === 'alphabetically') {
-        // console.log('alpha sort');
         return a.firstName < b.firstName ? -1 : 1;
       } else if (sortBy === 'lastCommunication') {
-        // console.log('alpha sort');
         return a.lastCommunication > b.lastCommunication ? 1 : -1;
       } else if (sortBy === 'priority') {
-        // console.log('alpha sort');
         return a.priority > b.priority ? -1 : 1;
       } else if (sortBy === 'memberType') {
-        // console.log('alpha sort');
         return a.memberType > b.memberType ? -1 : 1;
       }
     });

@@ -1,7 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render EditClientPage 1`] = `
-<div>
+<div
+  className="editClientPage"
+>
+  <div
+    className="editClientPage__heading"
+  >
+    <div
+      className="editClientPage__content"
+    >
+      <h1>
+        Edit Client Details
+      </h1>
+    </div>
+  </div>
   <ClientForm
     client={
       Object {

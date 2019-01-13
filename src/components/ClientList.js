@@ -21,7 +21,6 @@ export const ClientList = props => (
         <p className="clientListItems__message"> *** No Clients *** </p>
       ) : (
         props.clients.map(client => {
-          // console.log(client);
           return <ClientListItem key={client.id} {...client} />;
         })
       )}
@@ -30,7 +29,6 @@ export const ClientList = props => (
 );
 
 const mapStateToProps = state => {
-  // console.log(state);
   return {
     clients: getVisibleClients(state.clients, state.filters)
   };

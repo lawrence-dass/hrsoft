@@ -34,13 +34,10 @@ export class ClientListFilters extends React.Component {
   };
 
   onInputChange = e => {
-    // console.log(e.target.value);
     this.props.setInputFilter(e.target.value);
   };
 
   onSortChange = e => {
-    // console.log(e.target.value);
-
     if (e.target.value === 'Date') {
       this.props.sortByDate();
     }
@@ -71,6 +68,7 @@ export class ClientListFilters extends React.Component {
 
         {/* Drop down option for sortby, based on value of the option an action is dispatch to the store using terneray operator */}
         <select
+          className="select"
           className="clientListFilter__dropdown"
           onChange={this.onSortChange}
         >

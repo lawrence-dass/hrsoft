@@ -17,8 +17,8 @@ test('should render startAddClientPage correctly', () => {
   expect(wrapper).toMatchSnapshot();
 });
 
-// test('should handle on submit', () => {
-//   wrapper.find('ClientForm').props('onSubmit')(clients[0]);
-//   expect(history.push).toHaveBeenLastCalledWith('/');
-//   expect(startAddClient).toHaveBeenLastCalledWith(clients[0]);
-// });
+test('should handle on submit', () => {
+  wrapper.find('ClientForm').props('onSubmit')(clients[0]);
+  expect(history.push).toHaveBeenLastCalledWith('/');
+  expect(startAddClient).toHaveBeenLastCalledWith(clients[0]);
+});

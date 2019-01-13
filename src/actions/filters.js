@@ -1,8 +1,6 @@
 // action generator for filters
 
 export const setInputFilter = (input = '') => {
-  // console.log('setInputFilter');
-  console.log(input);
   return {
     type: 'SET_INPUT_FILTER',
     input
@@ -10,7 +8,6 @@ export const setInputFilter = (input = '') => {
 };
 
 export const sortByAlphabet = () => {
-  console.log('sortByAlphabet triggered');
   return {
     type: 'SORT_BY_ALPHABET'
   };

@@ -1,29 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render Header correclty 1`] = `
-<header>
-  <h1>
-    Hrsoft
-  </h1>
-  <NavLink
-    activeClassName="isActive"
-    aria-current="page"
-    exact={true}
-    to="/dashboard"
+<header
+  className="header"
+>
+  <div
+    className="header__content"
   >
-    Dashboard
-  </NavLink>
-  <NavLink
-    activeClassName="isActive"
-    aria-current="page"
-    to="/create"
-  >
-    Add Client
-  </NavLink>
-  <button
-    onClick={[Function]}
-  >
-     Logout 
-  </button>
+    <Link
+      className="header__logo"
+      exact="true"
+      replace={false}
+      to="/dashboard"
+    >
+      <h1>
+        <span
+          className="header__logo--special"
+        >
+          HR
+        </span>
+        soft
+      </h1>
+    </Link>
+    <button
+      className="header__button"
+      onClick={[Function]}
+    >
+      Logout
+    </button>
+  </div>
 </header>
 `;

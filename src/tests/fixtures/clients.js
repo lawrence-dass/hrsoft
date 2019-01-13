@@ -3,7 +3,6 @@ import moment from 'moment';
 const clients = [
   {
     id: '1',
-    title: 'Mr',
     firstName: 'John',
     lastName: 'Doe',
     gender: 'M',
@@ -13,7 +12,8 @@ const clients = [
     status: 'Employed',
     field: 'Designer',
     note: 'Note1',
-    lastCommuniation: '',
+    priority: '1',
+    lastCommuniation: moment(),
     memberType: 'Gold',
     createdAt: 0
   },

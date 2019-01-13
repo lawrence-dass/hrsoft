@@ -1,13 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render ClientListFilter correctly 1`] = `
-<div>
+<div
+  className="clientListFilter"
+>
   <input
+    className="clientListFilter__search"
     onChange={[Function]}
+    placeholder="Search"
     type="text"
-    value=""
   />
   <select
+    className="clientListFilter__dropdown"
     onChange={[Function]}
   >
     <option>
@@ -15,6 +19,15 @@ exports[`should render ClientListFilter correctly 1`] = `
     </option>
     <option>
       Alphabetically
+    </option>
+    <option>
+      Last Communication
+    </option>
+    <option>
+      Priority
+    </option>
+    <option>
+      Member Type
     </option>
   </select>
   <withStyles(DateRangePicker)
@@ -30,7 +43,7 @@ exports[`should render ClientListFilter correctly 1`] = `
     disabled={false}
     displayFormat={[Function]}
     enableOutsideDays={false}
-    endDate={"2018-12-31T18:29:59.999Z"}
+    endDate={"2019-01-31T18:29:59.999Z"}
     endDateId="endDate"
     endDatePlaceholderText="End Date"
     firstDayOfWeek={null}
@@ -103,7 +116,7 @@ exports[`should render ClientListFilter correctly 1`] = `
     showClearDates={true}
     showDefaultInputIcon={false}
     small={false}
-    startDate={"2018-11-30T18:30:00.000Z"}
+    startDate={"2018-12-31T18:30:00.000Z"}
     startDateId="startDate"
     startDatePlaceholderText="Start Date"
     verticalHeight={null}
@@ -116,13 +129,17 @@ exports[`should render ClientListFilter correctly 1`] = `
 `;
 
 exports[`should render ClientListFilter with altFilter correctly 1`] = `
-<div>
+<div
+  className="clientListFilter"
+>
   <input
+    className="clientListFilter__search"
     onChange={[Function]}
+    placeholder="Search"
     type="text"
-    value=""
   />
   <select
+    className="clientListFilter__dropdown"
     onChange={[Function]}
   >
     <option>
@@ -130,6 +147,15 @@ exports[`should render ClientListFilter with altFilter correctly 1`] = `
     </option>
     <option>
       Alphabetically
+    </option>
+    <option>
+      Last Communication
+    </option>
+    <option>
+      Priority
+    </option>
+    <option>
+      Member Type
     </option>
   </select>
   <withStyles(DateRangePicker)
@@ -145,7 +171,7 @@ exports[`should render ClientListFilter with altFilter correctly 1`] = `
     disabled={false}
     displayFormat={[Function]}
     enableOutsideDays={false}
-    endDate={"2018-12-31T18:29:59.999Z"}
+    endDate={"2019-01-16T13:22:19.545Z"}
     endDateId="endDate"
     endDatePlaceholderText="End Date"
     firstDayOfWeek={null}
@@ -218,7 +244,7 @@ exports[`should render ClientListFilter with altFilter correctly 1`] = `
     showClearDates={true}
     showDefaultInputIcon={false}
     small={false}
-    startDate={"2018-11-30T18:30:00.000Z"}
+    startDate={"1970-01-01T00:00:00.000Z"}
     startDateId="startDate"
     startDatePlaceholderText="Start Date"
     verticalHeight={null}

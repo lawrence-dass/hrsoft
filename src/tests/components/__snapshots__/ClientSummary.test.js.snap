@@ -1,23 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render client summary correctly with multiple clients 1`] = `
-<div>
-  <h1>
-    Viewing 
-     
-    clients
-     based on set filters.
-  </h1>
+<div
+  className="clientListSummary"
+>
+  <div
+    className="clientListSummary__container"
+  >
+    <h1>
+      Viewing
+       
+      <span
+        className="clientListSummary__special"
+      >
+         
+      </span>
+       
+      clients
+       based on set filters.
+    </h1>
+    <Link
+      className="clientListSummary__addClient"
+      replace={false}
+      to="/create"
+    >
+      Add Client
+    </Link>
+  </div>
 </div>
 `;
 
 exports[`should render client summary correctly with one client 1`] = `
-<div>
-  <h1>
-    Viewing 
-     
-    clients
-     based on set filters.
-  </h1>
+<div
+  className="clientListSummary"
+>
+  <div
+    className="clientListSummary__container"
+  >
+    <h1>
+      Viewing
+       
+      <span
+        className="clientListSummary__special"
+      >
+         
+      </span>
+       
+      clients
+       based on set filters.
+    </h1>
+    <Link
+      className="clientListSummary__addClient"
+      replace={false}
+      to="/create"
+    >
+      Add Client
+    </Link>
+  </div>
 </div>
 `;

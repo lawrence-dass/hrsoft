@@ -9,7 +9,6 @@ export const addClient = client => ({
 });
 
 export const startAddClient = (clientData = {}) => {
-  console.log('startAddClient triggered');
   return (dispatch, getState) => {
     const uid = getState().auth.uid;
     const {
@@ -42,13 +41,10 @@ export const startAddClient = (clientData = {}) => {
       createdAt
     };
 
-    console.log(client);
-
     return database
       .ref(`users/${uid}/clients`)
       .push(client)
       .then(ref => {
-        // console.log(ref.key);
         dispatch(
           addClient({
             id: ref.key,
