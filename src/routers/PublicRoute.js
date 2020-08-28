@@ -1,6 +1,6 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { Route, Redirect } from 'react-router-dom';
+import React from "react";
+import { connect } from "react-redux";
+import { Route, Redirect } from "react-router-dom";
 
 export const PublicRoute = ({
   isAuthenticated,
@@ -10,7 +10,7 @@ export const PublicRoute = ({
   return (
     <Route
       {...rest}
-      component={props =>
+      component={(props) =>
         isAuthenticated ? (
           <Redirect to="/dashboard" />
         ) : (
@@ -21,9 +21,9 @@ export const PublicRoute = ({
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    isAuthenticated: !!state.auth.uid
+    isAuthenticated: !!state.auth.uid,
   };
 };
 

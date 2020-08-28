@@ -1,54 +1,54 @@
-import React, { Component } from 'react';
-import { SingleDatePicker } from 'react-dates';
-import { Link } from 'react-router-dom';
-import PhoneInput from 'react-phone-number-input';
+import React, { Component } from "react";
+import { SingleDatePicker } from "react-dates";
+import { Link } from "react-router-dom";
+// import PhoneInput from "react-phone-number-input";
 
-import moment from 'moment';
+import moment from "moment";
 
 class ClientForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: props.client ? props.client.firstName : '',
-      lastName: props.client ? props.client.lastName : '',
-      gender: props.client ? props.client.gender : '',
-      phone: props.client ? props.client.phone : '',
-      email: props.client ? props.client.email : '',
-      address: props.client ? props.client.address : '',
-      priority: props.client ? props.client.priority : '',
-      field: props.client ? props.client.field : '',
-      note: props.client ? props.client.note : '',
+      firstName: props.client ? props.client.firstName : "",
+      lastName: props.client ? props.client.lastName : "",
+      gender: props.client ? props.client.gender : "",
+      phone: props.client ? props.client.phone : "",
+      email: props.client ? props.client.email : "",
+      address: props.client ? props.client.address : "",
+      priority: props.client ? props.client.priority : "",
+      field: props.client ? props.client.field : "",
+      note: props.client ? props.client.note : "",
       lastCommunication: props.client
         ? moment(props.client.lastCommunication)
         : moment(),
-      memberType: props.client ? props.client.memberType : 'basic',
+      memberType: props.client ? props.client.memberType : "basic",
       createdAt: props.client ? moment(props.client.createdAt) : moment(),
-      error: ''
+      error: "",
     };
   }
 
-  onFirstNameChange = e => {
+  onFirstNameChange = (e) => {
     const firstName = e.target.value;
     this.setState(() => {
       return { firstName };
     });
   };
 
-  onLastNameChange = e => {
+  onLastNameChange = (e) => {
     const lastName = e.target.value;
     this.setState(() => {
       return { lastName };
     });
   };
 
-  onEmailChange = e => {
+  onEmailChange = (e) => {
     const email = e.target.value;
     this.setState(() => {
       return { email };
     });
   };
 
-  onPhoneChange = e => {
+  onPhoneChange = (e) => {
     const phone = e.target.value;
 
     if (phone.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/)) {
@@ -58,28 +58,28 @@ class ClientForm extends Component {
     }
   };
 
-  onGenderChange = e => {
+  onGenderChange = (e) => {
     const gender = e.target.value;
     this.setState(() => {
       return { gender };
     });
   };
 
-  onAddressChange = e => {
+  onAddressChange = (e) => {
     const address = e.target.value;
     this.setState(() => {
       return { address };
     });
   };
 
-  onFieldChange = e => {
+  onFieldChange = (e) => {
     const field = e.target.value;
     this.setState(() => {
       return { field };
     });
   };
 
-  onMemberTypeChange = e => {
+  onMemberTypeChange = (e) => {
     const memberType = e.target.value;
 
     this.setState(() => {
@@ -87,25 +87,25 @@ class ClientForm extends Component {
     });
   };
 
-  onPriorityChange = e => {
+  onPriorityChange = (e) => {
     const priority = e.target.value;
     this.setState(() => {
       return { priority };
     });
   };
 
-  onNoteChange = e => {
+  onNoteChange = (e) => {
     const note = e.target.value;
     this.setState(() => {
       return { note };
     });
   };
 
-  onLastCommunicatedDate = lastCommunication => {
+  onLastCommunicatedDate = (lastCommunication) => {
     if (lastCommunication) {
       this.setState(() => {
         return {
-          lastCommunication
+          lastCommunication,
         };
       });
     }
@@ -114,12 +114,12 @@ class ClientForm extends Component {
   onFocusChange = ({ focused }) => {
     this.setState(() => {
       return {
-        calendarFocused: focused
+        calendarFocused: focused,
       };
     });
   };
 
-  onSubmit = e => {
+  onSubmit = (e) => {
     e.preventDefault();
     if (
       !this.state.firstName ||
@@ -133,18 +133,18 @@ class ClientForm extends Component {
       this.setState(() => {
         return {
           error: `Please complete the form before submitting. Following are required:
-          ${!this.state.firstName ? 'First Name' : ''}
-          ${!this.state.lastName ? 'Last Name' : ''}
-          ${!this.state.email ? 'Email Address' : ''}
-          ${!this.state.phone ? 'Phone' : ''}
-          ${!this.state.gender ? 'Gender' : ''}
-          ${!this.state.address ? 'Address' : ''}
-          ${!this.state.priority ? 'Priority' : ''}`
+          ${!this.state.firstName ? "First Name" : ""}
+          ${!this.state.lastName ? "Last Name" : ""}
+          ${!this.state.email ? "Email Address" : ""}
+          ${!this.state.phone ? "Phone" : ""}
+          ${!this.state.gender ? "Gender" : ""}
+          ${!this.state.address ? "Address" : ""}
+          ${!this.state.priority ? "Priority" : ""}`,
         };
       });
     } else {
       this.setState(() => {
-        return { error: '' };
+        return { error: "" };
       });
       this.props.onSubmit({
         firstName: this.state.firstName,
@@ -159,7 +159,7 @@ class ClientForm extends Component {
         note: this.state.note,
         lastCommunication: this.state.lastCommunication.valueOf(),
         memberType: this.state.memberType,
-        createdAt: this.state.createdAt.valueOf()
+        createdAt: this.state.createdAt.valueOf(),
       });
     }
   };
@@ -208,10 +208,10 @@ class ClientForm extends Component {
 
           <div className="clientForm__formGroup">
             <label htmlFor="phoneNumber"> Phone No. :</label>
-            <PhoneInput
+            <input
               placeholder="Enter phone number"
               value={this.state.phone}
-              onChange={phone => this.setState({ phone })}
+              onChange={(phone) => this.setState({ phone })}
             />
           </div>
 
@@ -307,7 +307,7 @@ class ClientForm extends Component {
 
           <div className="clientForm__buttons">
             <button className="clientForm__buttons--one">
-              {this.props.client ? 'Submit' : 'Add Client'}
+              {this.props.client ? "Submit" : "Add Client"}
             </button>
             <Link to="/dashboard">
               <button className="clientForm__buttons--two"> Cancel </button>

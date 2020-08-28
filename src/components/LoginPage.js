@@ -1,8 +1,8 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { startLogin } from '../actions/auth';
+import React from "react";
+import { connect } from "react-redux";
+import { startLogin } from "../actions/auth";
 
-export const LoginPage = ({ startLogin }) => {
+const LoginPage = ({ startLogin }) => {
   return (
     <div className="landing">
       <div className="landing__image" />
@@ -19,13 +19,10 @@ export const LoginPage = ({ startLogin }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    startLogin: () => dispatch(startLogin())
+    startLogin: () => dispatch(startLogin()),
   };
 };
 
-export default connect(
-  undefined,
-  mapDispatchToProps
-)(LoginPage);
+export default connect(undefined, mapDispatchToProps)(LoginPage);
