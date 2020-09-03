@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { SingleDatePicker } from "react-dates";
 import { Link } from "react-router-dom";
-// import PhoneInput from "react-phone-number-input";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 import moment from "moment";
 
@@ -208,7 +209,8 @@ class ClientForm extends Component {
 
           <div className="clientForm__formGroup">
             <label htmlFor="phoneNumber"> Phone No. :</label>
-            <input
+            <PhoneInput
+              country={"in"}
               placeholder="Enter phone number"
               value={this.state.phone}
               onChange={(phone) => this.setState({ phone })}

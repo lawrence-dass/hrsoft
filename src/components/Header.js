@@ -18,12 +18,9 @@ export const Header = ({ startLogout }) => (
   </header>
 );
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    startLogout: () => dispatch(startLogout())
+    startLogout: () => dispatch(startLogout()),
   };
 };
-export default connect(
-  undefined,
-  mapDispatchToProps
-)(Header);
+export default connect(undefined, mapDispatchToProps)(Header);

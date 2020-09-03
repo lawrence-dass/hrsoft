@@ -1,7 +1,7 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import 'react-dates/initialize';
-import { DateRangePicker } from 'react-dates';
+import React from "react";
+import { connect } from "react-redux";
+import "react-dates/initialize";
+import { DateRangePicker } from "react-dates";
 import {
   setInputFilter,
   sortByDate,
@@ -10,8 +10,8 @@ import {
   setEndDate,
   sortByLastCommunication,
   sortByPriority,
-  sortByMemberType
-} from '../actions/filters';
+  sortByMemberType,
+} from "../actions/filters";
 
 // Component which help to render the for sorting and filtering clients
 
@@ -20,7 +20,7 @@ export class ClientListFilters extends React.Component {
     super(props);
 
     this.state = {
-      calendarFocused: null
+      calendarFocused: null,
     };
   }
 
@@ -29,28 +29,28 @@ export class ClientListFilters extends React.Component {
     this.props.setEndDate(endDate);
   };
 
-  onFocusChange = calendarFocused => {
+  onFocusChange = (calendarFocused) => {
     this.setState(() => ({ calendarFocused }));
   };
 
-  onInputChange = e => {
+  onInputChange = (e) => {
     this.props.setInputFilter(e.target.value);
   };
 
-  onSortChange = e => {
-    if (e.target.value === 'Date') {
+  onSortChange = (e) => {
+    if (e.target.value === "Date") {
       this.props.sortByDate();
     }
-    if (e.target.value === 'Alphabetically') {
+    if (e.target.value === "Alphabetically") {
       this.props.sortByAlphabet();
     }
-    if (e.target.value === 'Last Communication') {
+    if (e.target.value === "Last Communication") {
       this.props.sortByLastCommunication();
     }
-    if (e.target.value === 'Priority') {
+    if (e.target.value === "Priority") {
       this.props.sortByPriority();
     }
-    if (e.target.value === 'Member Type') {
+    if (e.target.value === "Member Type") {
       this.props.sortByMemberType();
     }
   };
@@ -72,7 +72,9 @@ export class ClientListFilters extends React.Component {
           className="clientListFilter__dropdown"
           onChange={this.onSortChange}
         >
-          <option value={this.props.filters.date}> Date </option>
+          <option selected value={this.props.filters.date}>
+            Date
+          </option>
           <option value={this.props.filters.alphabetically}>
             Alphabetically
           </option>
@@ -102,24 +104,21 @@ export class ClientListFilters extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    filters: state.filters
+    filters: state.filters,
   };
 };
 
-const mapDispatchToProps = dispatch => ({
-  setInputFilter: input => dispatch(setInputFilter(input)),
+const mapDispatchToProps = (dispatch) => ({
+  setInputFilter: (input) => dispatch(setInputFilter(input)),
   sortByDate: () => dispatch(sortByDate()),
   sortByAlphabet: () => dispatch(sortByAlphabet()),
   sortByLastCommunication: () => dispatch(sortByLastCommunication()),
   sortByPriority: () => dispatch(sortByPriority()),
   sortByMemberType: () => dispatch(sortByMemberType()),
-  setStartDate: startDate => dispatch(setStartDate(startDate)),
-  setEndDate: endDate => dispatch(setEndDate(endDate))
+  setStartDate: (startDate) => dispatch(setStartDate(startDate)),
+  setEndDate: (endDate) => dispatch(setEndDate(endDate)),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ClientListFilters);
+export default connect(mapStateToProps, mapDispatchToProps)(ClientListFilters);
