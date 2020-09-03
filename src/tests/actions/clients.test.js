@@ -176,7 +176,6 @@
 //   });
 // });
 
-// console.log('below needs a fix.');
 // // test('should add client with default to the database and store', () => {
 // //   const store = createMockStore({});
 // //   const clientDefaults = {
@@ -209,7 +208,6 @@
 // //       return database.ref(`clients/${actions[0].client.id}`).once('value');
 // //     })
 // //     .then(snapshot => {
-// //       console.log(snapshot.val());
 // //       expect(snapshot.val()).toEqual(clientDefaults);
 // //       done();
 // //     });

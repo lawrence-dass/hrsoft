@@ -110,7 +110,7 @@ export class ViewClientPage extends React.Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    client: state.clients.find(client => client.id === props.match.params.id)
+    client: state.clients.find((client) => client.id === props.match.params.id),
   };
 };
 

@@ -21,10 +21,10 @@ export const ClientSummary = ({ ClientCount }) => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   const visibleClient = getVisibleClients(state.clients, state.filters);
   return {
-    ClientCount: visibleClient.length
+    ClientCount: visibleClient.length,
   };
 };
 

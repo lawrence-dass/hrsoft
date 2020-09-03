@@ -1,30 +1,30 @@
-import React, { Component } from "react";
-import { SingleDatePicker } from "react-dates";
-import { Link } from "react-router-dom";
-import PhoneInput from "react-phone-input-2";
-import "react-phone-input-2/lib/style.css";
+import React, { Component } from 'react';
+import { SingleDatePicker } from 'react-dates';
+import { Link } from 'react-router-dom';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 
-import moment from "moment";
+import moment from 'moment';
 
 class ClientForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: props.client ? props.client.firstName : "",
-      lastName: props.client ? props.client.lastName : "",
-      gender: props.client ? props.client.gender : "",
-      phone: props.client ? props.client.phone : "",
-      email: props.client ? props.client.email : "",
-      address: props.client ? props.client.address : "",
-      priority: props.client ? props.client.priority : "",
-      field: props.client ? props.client.field : "",
-      note: props.client ? props.client.note : "",
+      firstName: props.client ? props.client.firstName : '',
+      lastName: props.client ? props.client.lastName : '',
+      gender: props.client ? props.client.gender : '',
+      phone: props.client ? props.client.phone : '',
+      email: props.client ? props.client.email : '',
+      address: props.client ? props.client.address : '',
+      priority: props.client ? props.client.priority : '',
+      field: props.client ? props.client.field : '',
+      note: props.client ? props.client.note : '',
       lastCommunication: props.client
         ? moment(props.client.lastCommunication)
         : moment(),
-      memberType: props.client ? props.client.memberType : "basic",
+      memberType: props.client ? props.client.memberType : 'basic',
       createdAt: props.client ? moment(props.client.createdAt) : moment(),
-      error: "",
+      error: '',
     };
   }
 
@@ -134,23 +134,22 @@ class ClientForm extends Component {
       this.setState(() => {
         return {
           error: `Please complete the form before submitting. Following are required:
-          ${!this.state.firstName ? "First Name" : ""}
-          ${!this.state.lastName ? "Last Name" : ""}
-          ${!this.state.email ? "Email Address" : ""}
-          ${!this.state.phone ? "Phone" : ""}
-          ${!this.state.gender ? "Gender" : ""}
-          ${!this.state.address ? "Address" : ""}
-          ${!this.state.priority ? "Priority" : ""}`,
+          ${!this.state.firstName ? 'First Name' : ''}
+          ${!this.state.lastName ? 'Last Name' : ''}
+          ${!this.state.email ? 'Email Address' : ''}
+          ${!this.state.phone ? 'Phone' : ''}
+          ${!this.state.gender ? 'Gender' : ''}
+          ${!this.state.address ? 'Address' : ''}
+          ${!this.state.priority ? 'Priority' : ''}`,
         };
       });
     } else {
       this.setState(() => {
-        return { error: "" };
+        return { error: '' };
       });
       this.props.onSubmit({
         firstName: this.state.firstName,
         lastName: this.state.lastName,
-        title: this.state.title,
         gender: this.state.gender,
         phone: this.state.phone,
         email: this.state.email,
@@ -210,7 +209,7 @@ class ClientForm extends Component {
           <div className="clientForm__formGroup">
             <label htmlFor="phoneNumber"> Phone No. :</label>
             <PhoneInput
-              country={"in"}
+              country={'in'}
               placeholder="Enter phone number"
               value={this.state.phone}
               onChange={(phone) => this.setState({ phone })}
@@ -309,7 +308,7 @@ class ClientForm extends Component {
 
           <div className="clientForm__buttons">
             <button className="clientForm__buttons--one">
-              {this.props.client ? "Submit" : "Add Client"}
+              {this.props.client ? 'Submit' : 'Add Client'}
             </button>
             <Link to="/dashboard">
               <button className="clientForm__buttons--two"> Cancel </button>

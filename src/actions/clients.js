@@ -1,11 +1,9 @@
-import uuid from 'uuid';
 import database from '../firebase/firebase';
-import { Children } from 'react';
 // action generator for adding client
 // passed with default value if no value passed for the client
-export const addClient = client => ({
+export const addClient = (client) => ({
   type: 'ADD_CLIENT',
-  client
+  client,
 });
 
 export const startAddClient = (clientData = {}) => {
@@ -23,7 +21,7 @@ export const startAddClient = (clientData = {}) => {
       note = '',
       lastCommunication = '',
       memberType = '',
-      createdAt = 0
+      createdAt = 0,
     } = clientData;
 
     const client = {
@@ -38,17 +36,17 @@ export const startAddClient = (clientData = {}) => {
       note,
       lastCommunication,
       memberType,
-      createdAt
+      createdAt,
     };
 
     return database
       .ref(`users/${uid}/clients`)
       .push(client)
-      .then(ref => {
+      .then((ref) => {
         dispatch(
           addClient({
             id: ref.key,
-            ...client
+            ...client,
           })
         );
       });
@@ -59,7 +57,7 @@ export const startAddClient = (clientData = {}) => {
 export const removeClient = ({ id } = {}) => {
   return {
     type: 'REMOVE_CLIENT',
-    id
+    id,
   };
 };
 
@@ -80,7 +78,7 @@ export const editClient = (id, updates) => {
   return {
     type: 'EDIT_CLIENT',
     id,
-    updates
+    updates,
   };
 };
 
@@ -98,10 +96,10 @@ export const startEditClient = (id, updates) => {
 
 // set clients
 
-export const setClients = clients => {
+export const setClients = (clients) => {
   return {
     type: 'SET_CLIENTS',
-    clients
+    clients,
   };
 };
 
@@ -114,12 +112,12 @@ export const startSetClients = () => {
       .ref(`users/${uid}/clients`)
 
       .once('value')
-      .then(snapshot => {
+      .then((snapshot) => {
         const clients = [];
-        snapshot.forEach(childSnapshot => {
+        snapshot.forEach((childSnapshot) => {
           clients.push({
             id: childSnapshot.key,
-            ...childSnapshot.val()
+            ...childSnapshot.val(),
           });
         });
         dispatch(setClients(clients));

@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { startLogin } from '../actions/auth';
+import { startLogin, startDemoLogin } from '../actions/auth';
 
-const LoginPage = ({ startLogin }) => {
+const LoginPage = ({ startLogin, startDemoLogin }) => {
   return (
     <div className="landing">
       <div className="landing__image" />
@@ -14,6 +14,14 @@ const LoginPage = ({ startLogin }) => {
         <button className="landing__btn" onClick={startLogin}>
           <span className="landing__btnText"> Login with Google</span>
         </button>
+        <p>
+          Please click
+          <span onClick={startDemoLogin} className="landing__demoLink">
+            {' '}
+            here{' '}
+          </span>
+          for demo login.
+        </p>
       </div>
     </div>
   );
@@ -22,6 +30,7 @@ const LoginPage = ({ startLogin }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     startLogin: () => dispatch(startLogin()),
+    startDemoLogin: () => dispatch(startDemoLogin()),
   };
 };
 

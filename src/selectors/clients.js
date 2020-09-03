@@ -2,9 +2,8 @@
 import moment from 'moment';
 
 const getVisibleClients = (clients, { input, sortBy, startDate, endDate }) => {
-  // console.log(input);
   return clients
-    .filter(client => {
+    .filter((client) => {
       const createdAtMoment = moment(client.createdAt);
       const startDateMatch = startDate
         ? startDate.isSameOrBefore(createdAtMoment, 'day')

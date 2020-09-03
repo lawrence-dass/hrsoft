@@ -13,6 +13,14 @@ export const startLogin = () => {
   };
 };
 
+export const startDemoLogin = () => {
+  return () => {
+    return firebase
+      .auth()
+      .signInWithEmailAndPassword('test@test.com', 'test123');
+  };
+};
+
 export const logout = () => {
   return {
     type: 'LOGOUT',

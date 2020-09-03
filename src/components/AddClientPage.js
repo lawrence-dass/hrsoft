@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { startAddClient } from '../actions/clients';
 
 export class AddClientPage extends React.Component {
-  onSubmit = client => {
+  onSubmit = (client) => {
     this.props.startAddClient(client);
     this.props.history.push('/');
   };
@@ -24,11 +24,8 @@ export class AddClientPage extends React.Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  startAddClient: client => dispatch(startAddClient(client))
+const mapDispatchToProps = (dispatch) => ({
+  startAddClient: (client) => dispatch(startAddClient(client)),
 });
 
-export default connect(
-  undefined,
-  mapDispatchToProps
-)(AddClientPage);
+export default connect(undefined, mapDispatchToProps)(AddClientPage);
